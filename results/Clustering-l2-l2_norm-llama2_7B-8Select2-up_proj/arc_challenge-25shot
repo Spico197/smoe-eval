@@ -1,0 +1,25 @@
+{
+  "results": {
+    "arc_challenge": {
+      "acc": 0.24829351535836178,
+      "acc_stderr": 0.012624912868089755,
+      "acc_norm": 0.28754266211604096,
+      "acc_norm_stderr": 0.013226719056266129
+    }
+  },
+  "versions": {
+    "arc_challenge": 0
+  },
+  "config": {
+    "model": "llama-moe-causal",
+    "model_args": "pretrained=/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Clustering-l2-l2_norm/llama2_7B-8Select2-up_proj,use_accelerate=True",
+    "num_fewshot": 25,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": null,
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

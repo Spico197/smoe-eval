@@ -1,0 +1,25 @@
+{
+  "results": {
+    "truthfulqa_mc": {
+      "mc1": 0.21664626682986537,
+      "mc1_stderr": 0.014421468452506978,
+      "mc2": 0.37014994835183973,
+      "mc2_stderr": 0.013735567591853624
+    }
+  },
+  "versions": {
+    "truthfulqa_mc": 1
+  },
+  "config": {
+    "model": "llama-moe-causal",
+    "model_args": "pretrained=/mnt/petrelfs/share_data/quxiaoye/continual_train_moe_models/16select4_64card_bs16_2_checkpoint12000,use_accelerate=True",
+    "num_fewshot": 0,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": null,
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

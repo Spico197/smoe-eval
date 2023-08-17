@@ -1,0 +1,25 @@
+{
+  "results": {
+    "hellaswag": {
+      "acc": 0.4615614419438359,
+      "acc_stderr": 0.004975014529648631,
+      "acc_norm": 0.6163114917347142,
+      "acc_norm_stderr": 0.004852896681736758
+    }
+  },
+  "versions": {
+    "hellaswag": 0
+  },
+  "config": {
+    "model": "llama-moe-causal",
+    "model_args": "pretrained=/mnt/petrelfs/share_data/quxiaoye/continual_train_moe_models/16select4_64card_bs16_2_checkpoint12000,use_accelerate=True",
+    "num_fewshot": 10,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": null,
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}
