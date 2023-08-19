@@ -1,114 +1,117 @@
-|hendrycksTest-abstract_algebra                   |      1|acc     |0.2200|±  |0.0416|
-|                                                 |       |acc_norm|0.2200|±  |0.0416|
+|                      Task                       |Version| Metric |Value |   |Stderr|
+|-------------------------------------------------|------:|--------|-----:|---|-----:|
+|hendrycksTest-abstract_algebra                   |      1|acc     |0.2300|±  |0.0423|
+|                                                 |       |acc_norm|0.2300|±  |0.0423|
 |hendrycksTest-anatomy                            |      1|acc     |0.2519|±  |0.0375|
 |                                                 |       |acc_norm|0.2519|±  |0.0375|
-|hendrycksTest-astronomy                          |      1|acc     |0.1974|±  |0.0324|
-|                                                 |       |acc_norm|0.1974|±  |0.0324|
-|hendrycksTest-business_ethics                    |      1|acc     |0.3400|±  |0.0476|
+|hendrycksTest-astronomy                          |      1|acc     |0.2697|±  |0.0361|
+|                                                 |       |acc_norm|0.2697|±  |0.0361|
+|hendrycksTest-business_ethics                    |      1|acc     |0.1600|±  |0.0368|
+|                                                 |       |acc_norm|0.1600|±  |0.0368|
+|hendrycksTest-clinical_knowledge                 |      1|acc     |0.2943|±  |0.0280|
+|                                                 |       |acc_norm|0.2943|±  |0.0280|
+|hendrycksTest-college_biology                    |      1|acc     |0.2917|±  |0.0380|
+|                                                 |       |acc_norm|0.2917|±  |0.0380|
+|hendrycksTest-college_chemistry                  |      1|acc     |0.3300|±  |0.0473|
+|                                                 |       |acc_norm|0.3300|±  |0.0473|
+|hendrycksTest-college_computer_science           |      1|acc     |0.3400|±  |0.0476|
 |                                                 |       |acc_norm|0.3400|±  |0.0476|
-|hendrycksTest-clinical_knowledge                 |      1|acc     |0.1887|±  |0.0241|
-|                                                 |       |acc_norm|0.1887|±  |0.0241|
-|hendrycksTest-college_biology                    |      1|acc     |0.3056|±  |0.0385|
-|                                                 |       |acc_norm|0.3056|±  |0.0385|
-|hendrycksTest-college_chemistry                  |      1|acc     |0.2400|±  |0.0429|
-|                                                 |       |acc_norm|0.2400|±  |0.0429|
-|hendrycksTest-college_computer_science           |      1|acc     |0.2200|±  |0.0416|
-|                                                 |       |acc_norm|0.2200|±  |0.0416|
-|hendrycksTest-college_mathematics                |      1|acc     |0.2600|±  |0.0441|
-|                                                 |       |acc_norm|0.2600|±  |0.0441|
-|hendrycksTest-college_medicine                   |      1|acc     |0.2370|±  |0.0324|
-|                                                 |       |acc_norm|0.2370|±  |0.0324|
-|hendrycksTest-college_physics                    |      1|acc     |0.2157|±  |0.0409|
-|                                                 |       |acc_norm|0.2157|±  |0.0409|
-|hendrycksTest-computer_security                  |      1|acc     |0.2900|±  |0.0456|
-|                                                 |       |acc_norm|0.2900|±  |0.0456|
-|hendrycksTest-conceptual_physics                 |      1|acc     |0.2894|±  |0.0296|
-|                                                 |       |acc_norm|0.2894|±  |0.0296|
+|hendrycksTest-college_mathematics                |      1|acc     |0.3100|±  |0.0465|
+|                                                 |       |acc_norm|0.3100|±  |0.0465|
+|hendrycksTest-college_medicine                   |      1|acc     |0.3699|±  |0.0368|
+|                                                 |       |acc_norm|0.3699|±  |0.0368|
+|hendrycksTest-college_physics                    |      1|acc     |0.2647|±  |0.0439|
+|                                                 |       |acc_norm|0.2647|±  |0.0439|
+|hendrycksTest-computer_security                  |      1|acc     |0.1900|±  |0.0394|
+|                                                 |       |acc_norm|0.1900|±  |0.0394|
+|hendrycksTest-conceptual_physics                 |      1|acc     |0.2809|±  |0.0294|
+|                                                 |       |acc_norm|0.2809|±  |0.0294|
 |hendrycksTest-econometrics                       |      1|acc     |0.2544|±  |0.0410|
 |                                                 |       |acc_norm|0.2544|±  |0.0410|
-|hendrycksTest-electrical_engineering             |      1|acc     |0.1724|±  |0.0315|
-|                                                 |       |acc_norm|0.1724|±  |0.0315|
+|hendrycksTest-electrical_engineering             |      1|acc     |0.2552|±  |0.0363|
+|                                                 |       |acc_norm|0.2552|±  |0.0363|
 |hendrycksTest-elementary_mathematics             |      1|acc     |0.2646|±  |0.0227|
 |                                                 |       |acc_norm|0.2646|±  |0.0227|
-|hendrycksTest-formal_logic                       |      1|acc     |0.2063|±  |0.0362|
-|                                                 |       |acc_norm|0.2063|±  |0.0362|
-|hendrycksTest-global_facts                       |      1|acc     |0.2100|±  |0.0409|
-|                                                 |       |acc_norm|0.2100|±  |0.0409|
-|hendrycksTest-high_school_biology                |      1|acc     |0.2387|±  |0.0243|
-|                                                 |       |acc_norm|0.2387|±  |0.0243|
-|hendrycksTest-high_school_chemistry              |      1|acc     |0.1970|±  |0.0280|
-|                                                 |       |acc_norm|0.1970|±  |0.0280|
-|hendrycksTest-high_school_computer_science       |      1|acc     |0.3000|±  |0.0461|
+|hendrycksTest-formal_logic                       |      1|acc     |0.2460|±  |0.0385|
+|                                                 |       |acc_norm|0.2460|±  |0.0385|
+|hendrycksTest-global_facts                       |      1|acc     |0.3000|±  |0.0461|
 |                                                 |       |acc_norm|0.3000|±  |0.0461|
-|hendrycksTest-high_school_european_history       |      1|acc     |0.2364|±  |0.0332|
-|                                                 |       |acc_norm|0.2364|±  |0.0332|
-|hendrycksTest-high_school_geography              |      1|acc     |0.2778|±  |0.0319|
-|                                                 |       |acc_norm|0.2778|±  |0.0319|
-|hendrycksTest-high_school_government_and_politics|      1|acc     |0.3575|±  |0.0346|
-|                                                 |       |acc_norm|0.3575|±  |0.0346|
-|hendrycksTest-high_school_macroeconomics         |      1|acc     |0.3410|±  |0.0240|
-|                                                 |       |acc_norm|0.3410|±  |0.0240|
-|hendrycksTest-high_school_mathematics            |      1|acc     |0.2704|±  |0.0271|
-|                                                 |       |acc_norm|0.2704|±  |0.0271|
-|hendrycksTest-high_school_microeconomics         |      1|acc     |0.2143|±  |0.0267|
-|                                                 |       |acc_norm|0.2143|±  |0.0267|
-|hendrycksTest-high_school_physics                |      1|acc     |0.2781|±  |0.0366|
-|                                                 |       |acc_norm|0.2781|±  |0.0366|
-|hendrycksTest-high_school_psychology             |      1|acc     |0.2183|±  |0.0177|
-|                                                 |       |acc_norm|0.2183|±  |0.0177|
-|hendrycksTest-high_school_statistics             |      1|acc     |0.4444|±  |0.0339|
-|                                                 |       |acc_norm|0.4444|±  |0.0339|
-|hendrycksTest-high_school_us_history             |      1|acc     |0.2745|±  |0.0313|
-|                                                 |       |acc_norm|0.2745|±  |0.0313|
-|hendrycksTest-high_school_world_history          |      1|acc     |0.2658|±  |0.0288|
-|                                                 |       |acc_norm|0.2658|±  |0.0288|
-|hendrycksTest-human_aging                        |      1|acc     |0.3318|±  |0.0316|
-|                                                 |       |acc_norm|0.3318|±  |0.0316|
-|hendrycksTest-human_sexuality                    |      1|acc     |0.2366|±  |0.0373|
-|                                                 |       |acc_norm|0.2366|±  |0.0373|
-|hendrycksTest-international_law                  |      1|acc     |0.3223|±  |0.0427|
-|                                                 |       |acc_norm|0.3223|±  |0.0427|
-|hendrycksTest-jurisprudence                      |      1|acc     |0.3056|±  |0.0445|
-|                                                 |       |acc_norm|0.3056|±  |0.0445|
-|hendrycksTest-logical_fallacies                  |      1|acc     |0.2761|±  |0.0351|
-|                                                 |       |acc_norm|0.2761|±  |0.0351|
-|hendrycksTest-machine_learning                   |      1|acc     |0.2679|±  |0.0420|
-|                                                 |       |acc_norm|0.2679|±  |0.0420|
-|hendrycksTest-management                         |      1|acc     |0.2330|±  |0.0419|
-|                                                 |       |acc_norm|0.2330|±  |0.0419|
-|hendrycksTest-marketing                          |      1|acc     |0.3077|±  |0.0302|
-|                                                 |       |acc_norm|0.3077|±  |0.0302|
+|hendrycksTest-high_school_biology                |      1|acc     |0.3065|±  |0.0262|
+|                                                 |       |acc_norm|0.3065|±  |0.0262|
+|hendrycksTest-high_school_chemistry              |      1|acc     |0.2562|±  |0.0307|
+|                                                 |       |acc_norm|0.2562|±  |0.0307|
+|hendrycksTest-high_school_computer_science       |      1|acc     |0.2000|±  |0.0402|
+|                                                 |       |acc_norm|0.2000|±  |0.0402|
+|hendrycksTest-high_school_european_history       |      1|acc     |0.2545|±  |0.0340|
+|                                                 |       |acc_norm|0.2545|±  |0.0340|
+|hendrycksTest-high_school_geography              |      1|acc     |0.3232|±  |0.0333|
+|                                                 |       |acc_norm|0.3232|±  |0.0333|
+|hendrycksTest-high_school_government_and_politics|      1|acc     |0.3264|±  |0.0338|
+|                                                 |       |acc_norm|0.3264|±  |0.0338|
+|hendrycksTest-high_school_macroeconomics         |      1|acc     |0.3590|±  |0.0243|
+|                                                 |       |acc_norm|0.3590|±  |0.0243|
+|hendrycksTest-high_school_mathematics            |      1|acc     |0.2481|±  |0.0263|
+|                                                 |       |acc_norm|0.2481|±  |0.0263|
+|hendrycksTest-high_school_microeconomics         |      1|acc     |0.3319|±  |0.0306|
+|                                                 |       |acc_norm|0.3319|±  |0.0306|
+|hendrycksTest-high_school_physics                |      1|acc     |0.2583|±  |0.0357|
+|                                                 |       |acc_norm|0.2583|±  |0.0357|
+|hendrycksTest-high_school_psychology             |      1|acc     |0.3450|±  |0.0204|
+|                                                 |       |acc_norm|0.3450|±  |0.0204|
+|hendrycksTest-high_school_statistics             |      1|acc     |0.4491|±  |0.0339|
+|                                                 |       |acc_norm|0.4491|±  |0.0339|
+|hendrycksTest-high_school_us_history             |      1|acc     |0.2451|±  |0.0302|
+|                                                 |       |acc_norm|0.2451|±  |0.0302|
+|hendrycksTest-high_school_world_history          |      1|acc     |0.2363|±  |0.0277|
+|                                                 |       |acc_norm|0.2363|±  |0.0277|
+|hendrycksTest-human_aging                        |      1|acc     |0.1480|±  |0.0238|
+|                                                 |       |acc_norm|0.1480|±  |0.0238|
+|hendrycksTest-human_sexuality                    |      1|acc     |0.2748|±  |0.0392|
+|                                                 |       |acc_norm|0.2748|±  |0.0392|
+|hendrycksTest-international_law                  |      1|acc     |0.1570|±  |0.0332|
+|                                                 |       |acc_norm|0.1570|±  |0.0332|
+|hendrycksTest-jurisprudence                      |      1|acc     |0.2407|±  |0.0413|
+|                                                 |       |acc_norm|0.2407|±  |0.0413|
+|hendrycksTest-logical_fallacies                  |      1|acc     |0.3067|±  |0.0362|
+|                                                 |       |acc_norm|0.3067|±  |0.0362|
+|hendrycksTest-machine_learning                   |      1|acc     |0.2232|±  |0.0395|
+|                                                 |       |acc_norm|0.2232|±  |0.0395|
+|hendrycksTest-management                         |      1|acc     |0.3107|±  |0.0458|
+|                                                 |       |acc_norm|0.3107|±  |0.0458|
+|hendrycksTest-marketing                          |      1|acc     |0.2564|±  |0.0286|
+|                                                 |       |acc_norm|0.2564|±  |0.0286|
 |hendrycksTest-medical_genetics                   |      1|acc     |0.2900|±  |0.0456|
 |                                                 |       |acc_norm|0.2900|±  |0.0456|
-|hendrycksTest-miscellaneous                      |      1|acc     |0.2593|±  |0.0157|
-|                                                 |       |acc_norm|0.2593|±  |0.0157|
-|hendrycksTest-moral_disputes                     |      1|acc     |0.2457|±  |0.0232|
-|                                                 |       |acc_norm|0.2457|±  |0.0232|
-|hendrycksTest-moral_scenarios                    |      1|acc     |0.2346|±  |0.0142|
-|                                                 |       |acc_norm|0.2346|±  |0.0142|
-|hendrycksTest-nutrition                          |      1|acc     |0.2255|±  |0.0239|
-|                                                 |       |acc_norm|0.2255|±  |0.0239|
-|hendrycksTest-philosophy                         |      1|acc     |0.2862|±  |0.0257|
-|                                                 |       |acc_norm|0.2862|±  |0.0257|
-|hendrycksTest-prehistory                         |      1|acc     |0.2500|±  |0.0241|
-|                                                 |       |acc_norm|0.2500|±  |0.0241|
-|hendrycksTest-professional_accounting            |      1|acc     |0.2589|±  |0.0261|
-|                                                 |       |acc_norm|0.2589|±  |0.0261|
-|hendrycksTest-professional_law                   |      1|acc     |0.2366|±  |0.0109|
-|                                                 |       |acc_norm|0.2366|±  |0.0109|
-|hendrycksTest-professional_medicine              |      1|acc     |0.3640|±  |0.0292|
-|                                                 |       |acc_norm|0.3640|±  |0.0292|
-|hendrycksTest-professional_psychology            |      1|acc     |0.2680|±  |0.0179|
-|                                                 |       |acc_norm|0.2680|±  |0.0179|
-|hendrycksTest-public_relations                   |      1|acc     |0.2364|±  |0.0407|
-|                                                 |       |acc_norm|0.2364|±  |0.0407|
-|hendrycksTest-security_studies                   |      1|acc     |0.4000|±  |0.0314|
-|                                                 |       |acc_norm|0.4000|±  |0.0314|
-|hendrycksTest-sociology                          |      1|acc     |0.2338|±  |0.0299|
-|                                                 |       |acc_norm|0.2338|±  |0.0299|
+|hendrycksTest-miscellaneous                      |      1|acc     |0.2018|±  |0.0144|
+|                                                 |       |acc_norm|0.2018|±  |0.0144|
+|hendrycksTest-moral_disputes                     |      1|acc     |0.2543|±  |0.0234|
+|                                                 |       |acc_norm|0.2543|±  |0.0234|
+|hendrycksTest-moral_scenarios                    |      1|acc     |0.2380|±  |0.0142|
+|                                                 |       |acc_norm|0.2380|±  |0.0142|
+|hendrycksTest-nutrition                          |      1|acc     |0.2614|±  |0.0252|
+|                                                 |       |acc_norm|0.2614|±  |0.0252|
+|hendrycksTest-philosophy                         |      1|acc     |0.3055|±  |0.0262|
+|                                                 |       |acc_norm|0.3055|±  |0.0262|
+|hendrycksTest-prehistory                         |      1|acc     |0.2623|±  |0.0245|
+|                                                 |       |acc_norm|0.2623|±  |0.0245|
+|hendrycksTest-professional_accounting            |      1|acc     |0.2837|±  |0.0269|
+|                                                 |       |acc_norm|0.2837|±  |0.0269|
+|hendrycksTest-professional_law                   |      1|acc     |0.2477|±  |0.0110|
+|                                                 |       |acc_norm|0.2477|±  |0.0110|
+|hendrycksTest-professional_medicine              |      1|acc     |0.4412|±  |0.0302|
+|                                                 |       |acc_norm|0.4412|±  |0.0302|
+|hendrycksTest-professional_psychology            |      1|acc     |0.2386|±  |0.0172|
+|                                                 |       |acc_norm|0.2386|±  |0.0172|
+|hendrycksTest-public_relations                   |      1|acc     |0.3273|±  |0.0449|
+|                                                 |       |acc_norm|0.3273|±  |0.0449|
+|hendrycksTest-security_studies                   |      1|acc     |0.3918|±  |0.0313|
+|                                                 |       |acc_norm|0.3918|±  |0.0313|
+|hendrycksTest-sociology                          |      1|acc     |0.2836|±  |0.0319|
+|                                                 |       |acc_norm|0.2836|±  |0.0319|
 |hendrycksTest-us_foreign_policy                  |      1|acc     |0.3100|±  |0.0465|
 |                                                 |       |acc_norm|0.3100|±  |0.0465|
-|hendrycksTest-virology                           |      1|acc     |0.2711|±  |0.0346|
-|                                                 |       |acc_norm|0.2711|±  |0.0346|
-|hendrycksTest-world_religions                    |      1|acc     |0.2982|±  |0.0351|
-|                                                 |       |acc_norm|0.2982|±  |0.0351|
+|hendrycksTest-virology                           |      1|acc     |0.2410|±  |0.0333|
+|                                                 |       |acc_norm|0.2410|±  |0.0333|
+|hendrycksTest-world_religions                    |      1|acc     |0.2865|±  |0.0347|
+|                                                 |       |acc_norm|0.2865|±  |0.0347|
+
