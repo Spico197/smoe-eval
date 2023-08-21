@@ -39,7 +39,7 @@ for model_dir in ${folders[@]}; do
     for task_type in ${tasks[@]}; do
         job_id=$(sbatch eval.sh "$model_dir")
         i=$((i + 1))
-        echo "Submitted $i/$num_jobs - $job_id - $task_type: $model_dir"
+        echo "Job $i/$num_jobs - $job_id - $task_type: $model_dir"
         sleep 1
     done
 done
@@ -88,3 +88,12 @@ done
 # Submitted 21: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Graph-l1_norm-l1_norm/llama_7B-16Select4-up_proj
 # Submitted batch job 1665123
 # Submitted 22: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Graph-l1_norm-l1_norm/llama2_7B-16Select4-up_proj
+
+# Submitted 1/8 - Submitted batch job 1707364 - arc: /mnt/petrelfs/zhutong/smoe/outputs/random_16select4_moe
+# Submitted 2/8 - Submitted batch job 1707365 - truthfulqa: /mnt/petrelfs/zhutong/smoe/outputs/random_16select4_moe
+# Submitted 3/8 - Submitted batch job 1707366 - hellaswag: /mnt/petrelfs/zhutong/smoe/outputs/random_16select4_moe
+# Submitted 4/8 - Submitted batch job 1707367 - mmlu: /mnt/petrelfs/zhutong/smoe/outputs/random_16select4_moe
+# Submitted 5/8 - Submitted batch job 1707368 - arc: /mnt/petrelfs/zhutong/smoe/outputs/random_gate_16select4_moe
+# Submitted 6/8 - Submitted batch job 1707369 - truthfulqa: /mnt/petrelfs/zhutong/smoe/outputs/random_gate_16select4_moe
+# Submitted 7/8 - Submitted batch job 1707370 - hellaswag: /mnt/petrelfs/zhutong/smoe/outputs/random_gate_16select4_moe
+# Submitted 8/8 - Submitted batch job 1707371 - mmlu: /mnt/petrelfs/zhutong/smoe/outputs/random_gate_16select4_moe
