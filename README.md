@@ -2,9 +2,13 @@
 
 This repo is forked from [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/b281b0921b636bc36ad05c0b0b0763bd6dd43463). Commit: `b281b0921b636bc36ad05c0b0b0763bd6dd43463`.
 
-## SMoE Evaluation
+## 🚀 SMoE Evaluation
 
 Check `eval.sh`. You may use `sbatch eval.sh <model_dir>` to start evaluation.
+
+For convenient multiple job submission, check `multi_jobs.sh`.
+
+Below are readme messages from the original repo.
 
 ## Notice to Users
 (as of 6/15/23)
