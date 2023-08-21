@@ -37,7 +37,7 @@ num_jobs=$(echo "${#folders[@]} * ${#tasks[@]}" | bc)
 i=0
 for model_dir in ${folders[@]}; do
     for task_type in ${tasks[@]}; do
-        job_id=$(sbatch eval.sh "$model_dir")
+        job_id=$(sbatch eval.sh "$model_dir" "$task_type")
         i=$((i + 1))
         echo "Job $i/$num_jobs - $job_id - $task_type: $model_dir"
         sleep 1

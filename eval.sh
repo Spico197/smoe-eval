@@ -64,8 +64,9 @@ export LOGLEVEL=INFO
     model_type="llama-moe-causal"
     model_dir=$1
     out_name=$(python -c "import sys; print('-'.join(sys.argv[1].split('/')[-2:]))" $model_dir)
+    shift 1
 
-    task_type=$2
+    task_type=$1
 
     case $task_type in 
         "mmlu")        
@@ -96,6 +97,8 @@ export LOGLEVEL=INFO
         *)
             echo "$task_type task not supported!"
             exit 1
+            ;;
+    esac
 
     # --------------------------------------------------------------------------------------------------------------------
 
