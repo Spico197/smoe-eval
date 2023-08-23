@@ -35,9 +35,9 @@ export LOGLEVEL=INFO
     # out_name="16select4_woCPT"
     # model_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama_7B_MoE_16Select4-l2_norm"
 
-    model_type="llama-moe-causal"
-    out_name="clustering-l2-l2_norm-llama2-7b-8select2-gate_proj"
-    model_dir="/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Graph-l2_norm-l2_norm/llama_7B-16Select4-up_proj"
+    # model_type="llama-moe-causal"
+    # out_name="clustering-l2-l2_norm-llama2-7b-8select2-gate_proj"
+    # model_dir="/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Graph-l2_norm-l2_norm/llama_7B-16Select4-up_proj"
     # model_dir="/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-test/Clustering-l2-l2_norm/llama2_7B-8Select2-gate_proj"
 
     # model_type="llama-moe-causal"
@@ -88,6 +88,11 @@ export LOGLEVEL=INFO
             task_name="triviaqa-5shot"
             tasks="triviaqa"
             fewshot=5
+            ;;
+        "gsm8k")
+            task_name="gsm8k-8shot"
+            tasks="gsm8k"
+            fewshot=8
             ;;
         "truthfulqa")
             task_name="truthfulqa-0shot"

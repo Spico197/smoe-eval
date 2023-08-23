@@ -21,14 +21,17 @@ folders=(
     # "/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Graph-l1_norm-l1_norm/llama2_7B-16Select4-gate_proj"
     # "/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Graph-l1_norm-l1_norm/llama_7B-16Select4-up_proj"
     # "/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Graph-l1_norm-l1_norm/llama2_7B-16Select4-up_proj"
-    "/mnt/petrelfs/zhutong/smoe/outputs/random_16select4_moe"
-    "/mnt/petrelfs/zhutong/smoe/outputs/random_gate_16select4_moe"
+    # "/mnt/petrelfs/zhutong/smoe/outputs/random_16select4_moe"
+    # "/mnt/petrelfs/zhutong/smoe/outputs/random_gate_16select4_moe"
+    # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-2000"
+    "outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-3000"
 )
 
 tasks=(
     "arc"
     "truthfulqa"
     "hellaswag"
+    "gsm8k"
     "mmlu"
 )
 
@@ -97,3 +100,14 @@ done
 # Submitted 6/8 - Submitted batch job 1707369 - truthfulqa: /mnt/petrelfs/zhutong/smoe/outputs/random_gate_16select4_moe
 # Submitted 7/8 - Submitted batch job 1707370 - hellaswag: /mnt/petrelfs/zhutong/smoe/outputs/random_gate_16select4_moe
 # Submitted 8/8 - Submitted batch job 1707371 - mmlu: /mnt/petrelfs/zhutong/smoe/outputs/random_gate_16select4_moe
+
+# Job 1/4 - Submitted batch job 1710206 - arc: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-2000
+# Job 2/4 - Submitted batch job 1710207 - truthfulqa: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-2000
+# Job 3/4 - Submitted batch job 1710208 - hellaswag: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-2000
+# Job 4/4 - Submitted batch job 1710209 - mmlu: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-2000
+
+# Job 1/5 - Submitted batch job 1710964 - arc: outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-3000
+# Job 2/5 - Submitted batch job 1710965 - truthfulqa: outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-3000
+# Job 3/5 - Submitted batch job 1710966 - hellaswag: outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-3000
+# Job 4/5 - Submitted batch job 1710967 - gsm8k: outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-3000
+# Job 5/5 - Submitted batch job 1710968 - mmlu: outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-3000
