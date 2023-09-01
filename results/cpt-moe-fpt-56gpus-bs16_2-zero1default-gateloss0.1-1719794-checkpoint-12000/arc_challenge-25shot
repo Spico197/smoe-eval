@@ -1,0 +1,25 @@
+{
+  "results": {
+    "arc_challenge": {
+      "acc": 0.3378839590443686,
+      "acc_stderr": 0.013822047922283512,
+      "acc_norm": 0.3728668941979522,
+      "acc_norm_stderr": 0.014131176760131163
+    }
+  },
+  "versions": {
+    "arc_challenge": 0
+  },
+  "config": {
+    "model": "llama-moe-causal",
+    "model_args": "pretrained=/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-12000,use_accelerate=True",
+    "num_fewshot": 25,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": null,
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

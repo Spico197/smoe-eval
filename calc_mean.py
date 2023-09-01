@@ -32,10 +32,12 @@ def main(args):
         folder = Path(args.results_dir)
         scores = []
         for filename, key in RESULT_FILENAMES_AND_KEYS:
-            results = load_json(folder / filename)
-            mean_score = calc_mean(results["results"].values(), key=key)
-            scores.append(mean_score)
-            print(f"{filename}: {100 * mean_score:.2f} %")
+            filepath = folder / filename
+            if filepath.exists():
+                results = load_json(filepath)
+                mean_score = calc_mean(results["results"].values(), key=key)
+                scores.append(mean_score)
+                print(f"{filename}: {100 * mean_score:.2f} %")
         print(f"Average: {100 * sts.mean(scores):.2f} %")
 
 

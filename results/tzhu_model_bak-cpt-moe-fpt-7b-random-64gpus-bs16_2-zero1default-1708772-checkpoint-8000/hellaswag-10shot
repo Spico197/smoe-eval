@@ -1,0 +1,25 @@
+{
+  "results": {
+    "hellaswag": {
+      "acc": 0.3354909380601474,
+      "acc_stderr": 0.004711968379069018,
+      "acc_norm": 0.39982075283808005,
+      "acc_norm_stderr": 0.00488860187454748
+    }
+  },
+  "versions": {
+    "hellaswag": 0
+  },
+  "config": {
+    "model": "llama-moe-causal",
+    "model_args": "pretrained=/mnt/petrelfs/share_data/quxiaoye/models/tzhu_model_bak/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772-checkpoint-8000,use_accelerate=True",
+    "num_fewshot": 10,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": null,
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

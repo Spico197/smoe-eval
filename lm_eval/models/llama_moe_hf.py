@@ -1,5 +1,6 @@
 import math
 import torch
+import torch.nn.init
 import torch.nn.functional as F
 import transformers
 import peft
@@ -307,6 +308,9 @@ class LlamaMoEHfLM(BaseLM):
             )
         # model: LlamaMoEForCausalLM
         # model.set_moe_num_selects(16)
+        # for name, param in model.named_parameters():
+        #     if "gate" in name:
+        #         torch.nn.init.kaiming_normal_(param)
         return model
 
     def _create_auto_model_peft(

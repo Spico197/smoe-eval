@@ -6,7 +6,9 @@ This repo is forked from [lm-evaluation-harness](https://github.com/EleutherAI/l
 
 Check `eval.sh`. You may use `sbatch eval.sh <model_dir>` to start evaluation.
 
-For convenient multiple job submission, check `multi_jobs.sh`.
+- For convenient multiple job submission, check `multi_jobs.sh`.
+- New model folders may not contain tokenizer files, so you may need to copy them from the original model folder. See `cp_tokenizer.sh`.
+- For automatic submitting jobs, check `watch_and_eval.py`. You may use `python watch_and_eval.py <model_dir>` to start watching and evaluating.
 
 Below are readme messages from the original repo.
 

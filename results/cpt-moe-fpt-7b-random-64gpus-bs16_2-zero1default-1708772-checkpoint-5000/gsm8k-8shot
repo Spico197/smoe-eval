@@ -1,0 +1,23 @@
+{
+  "results": {
+    "gsm8k": {
+      "acc": 0.000758150113722517,
+      "acc_stderr": 0.0007581501137225374
+    }
+  },
+  "versions": {
+    "gsm8k": 0
+  },
+  "config": {
+    "model": "llama-moe-causal",
+    "model_args": "pretrained=/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-7b-random-64gpus-bs16_2-zero1default-1708772/checkpoint-5000,use_accelerate=True",
+    "num_fewshot": 8,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": null,
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

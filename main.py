@@ -2,10 +2,27 @@ import argparse
 import json
 import logging
 import os
+import random
+from typing import Optional
+
+import torch
+import numpy as np
 
 from lm_eval import tasks, evaluator, utils
 
 logging.getLogger("openai").setLevel(logging.WARNING)
+
+
+def set_seed(seed: Optional[int] = 1227, set_cudnn: Optional[bool] = True):
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+
+    if set_cudnn:
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
 
 
 def parse_args():
@@ -90,4 +107,5 @@ def main():
 
 
 if __name__ == "__main__":
+    set_seed()
     main()
