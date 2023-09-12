@@ -30,10 +30,12 @@ GateLossλ0.1	13	47.71	1.844	37.54	27.05
 GateLossλ0.1	15	55.05	1.833	37.71	26.62
 GateLossλ0.1	16	58.72	1.864	37.54	26.77
 GateLossλ0.1	17	62.39	1.852	38.91	27.44
-GateLossλ0.1	18	66.06	1.833	39.76	27.28"""
+GateLossλ0.1	18	66.06	1.833	39.76	27.28
+GateLossλ0.1	25	91.75	1.825	39.42	27.34
+GateLossλ0.1	26	95.42	1.81	39.85	27.48
+GateLossλ0.1	27	99.09	1.81	40.27	27.44"""
 
 table2 = """name	steps (k)	tokens (B)	loss	arc	mmlu
-MoE	0	0	12.18	27.73	25.14
 MoE	20	50	1.9	37.88	26.71
 MoE	22	83	1.807	38.99	27.76
 MoE	23	96.469	1.792	39.76	27.36
@@ -44,7 +46,6 @@ MoE data-v2	13	144.18	1.848	38.74	26.77
 MoE data-v2	14	147.85	1.875	37.97	26.99
 MoE data-v2	16	155.189	1.883	37.88	25.44
 MoE data-v2	17	158.86	1.896	37.71	27.03
-RandMoE	0	0	11.25	29.1	24.46
 RandMoE	2	8.4	2.87	22.7	25.6
 RandMoE	5	12.58	2.579	22.87	24.51
 RandMoE	8	33.55	2.169	25.34	24.76
@@ -57,10 +58,13 @@ GateLossλ0.1	13	47.71	1.844	37.54	27.05
 GateLossλ0.1	15	55.05	1.833	37.71	26.62
 GateLossλ0.1	16	58.72	1.864	37.54	26.77
 GateLossλ0.1	17	62.39	1.852	38.91	27.44
-GateLossλ0.1	18	66.06	1.833	39.76	27.28"""
+GateLossλ0.1	18	66.06	1.833	39.76	27.28
+GateLossλ0.1	25	91.75	1.825	39.42	27.34
+GateLossλ0.1	26	95.42	1.81	39.85	27.48
+GateLossλ0.1	27	99.09	1.81	40.27	27.44"""
 
-x_label = "token"  # token or loss
-benchmark = "mmlu"  # arc or mmlu
+x_label = "loss"  # token or loss
+benchmark = "arc"  # arc or mmlu
 markers = cycle("ox+*")
 
 assert x_label in ["token", "loss"]

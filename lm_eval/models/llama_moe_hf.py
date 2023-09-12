@@ -307,7 +307,7 @@ class LlamaMoEHfLM(BaseLM):
                 warmup_triton=gptq_use_triton,
             )
         # model: LlamaMoEForCausalLM
-        # model.set_moe_num_selects(16)
+        # model.set_moe_num_selects(12)
         # for name, param in model.named_parameters():
         #     if "gate" in name:
         #         torch.nn.init.kaiming_normal_(param)

@@ -72,7 +72,82 @@ folders=(
     # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-17000"
     # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-18000"
 
-    "/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Random-l2_norm/llama2_7B-16Select4-up_proj"
+    # "/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Random-l2_norm/llama2_7B-16Select4-up_proj"
+    
+    # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-19000"
+    # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-20000"
+
+    # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-21000"
+    # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-22000"
+    
+    # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-25000"
+    # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-26000"
+
+    # "/mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-27000"
+
+    # "/mnt/petrelfs/share_data/quxiaoye/models/tzhu_model_bak/random_16select4_moe"
+
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.60Percent-6604Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.80Percent-8806Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.90Percent-9907Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.95Percent-10457Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
+
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.60Percent-6604Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.80Percent-8806Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.90Percent-9907Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.95Percent-10457Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
+    
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.20Percent-2201Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.25Percent-2752Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.40Percent-4403Neurons
+
+    # /mnt/petrelfs/zhutong/smoe/outputs/cpt-fpt-resume-200b-1851221/checkpoint-1000
+    # /mnt/petrelfs/zhutong/smoe/outputs/cpt-fpt-resume-200b-1851221/checkpoint-2000
+
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.20Percent-2201Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.25Percent-2752Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.40Percent-4403Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.60Percent-6604Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.80Percent-8806Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.90Percent-9907Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.95Percent-10457Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
+
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.99Percent-10897Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.98Percent-10787Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.95Percent-10457Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.90Percent-9907Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.80Percent-8806Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.60Percent-6604Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.40Percent-4403Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.25Percent-2752Neurons
+
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons-Share
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-1376Neurons-Share
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-2752Neurons-Share
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share
+
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.20Percent-2201Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.25Percent-2752Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.40Percent-4403Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.60Percent-6604Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.80Percent-8806Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.90Percent-9907Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.95Percent-10457Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
+
+    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-2Select1-5504Neurons
+    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-2Select1-5504Neurons-Share
+    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-4Select1-5504Neurons-Share
+    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-8Select1-5504Neurons-Share
+    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share
 )
 
 tasks=(
@@ -251,4 +326,98 @@ done
 
 # Fri Sep  1 12:59:09 CST 2023 - Job 1/1 - Submitted batch job 1807075 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Random-l2_norm/llama2_7B-16Select4-up_proj
 
+# Sat Sep  2 20:39:55 CST 2023 - Job 1/4 - Submitted batch job 1829839 - arc: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-21000
+# Sat Sep  2 20:39:56 CST 2023 - Job 2/4 - Submitted batch job 1829840 - arc: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-22000
+# Sat Sep  2 20:39:57 CST 2023 - Job 3/4 - Submitted batch job 1829841 - mmlu: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-21000
+# Sat Sep  2 20:39:58 CST 2023 - Job 4/4 - Submitted batch job 1829842 - mmlu: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-22000
+
+# Mon Sep  4 00:18:21 CST 2023 - Job 1/4 - Submitted batch job 1842027 - arc: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-25000
+# Mon Sep  4 00:18:22 CST 2023 - Job 2/4 - Submitted batch job 1842028 - arc: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-26000
+# Mon Sep  4 00:18:23 CST 2023 - Job 3/4 - Submitted batch job 1842029 - mmlu: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-25000
+# Mon Sep  4 00:18:25 CST 2023 - Job 4/4 - Submitted batch job 1842030 - mmlu: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-26000
+
+# Mon Sep  4 09:51:56 CST 2023 - Job 1/2 - Submitted batch job 1844820 - arc: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-27000
+# Mon Sep  4 09:51:57 CST 2023 - Job 2/2 - Submitted batch job 1844821 - mmlu: /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-27000
+
+# Mon Sep  4 14:25:23 CST 2023 - Job 1/6 - Submitted batch job 1847007 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.60Percent-6604Neurons
+# Mon Sep  4 14:25:24 CST 2023 - Job 2/6 - Submitted batch job 1847008 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.80Percent-8806Neurons
+# Mon Sep  4 14:25:25 CST 2023 - Job 3/6 - Submitted batch job 1847009 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.90Percent-9907Neurons
+# Mon Sep  4 14:25:27 CST 2023 - Job 4/6 - Submitted batch job 1847010 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.95Percent-10457Neurons
+# Mon Sep  4 14:25:28 CST 2023 - Job 5/6 - Submitted batch job 1847011 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
+# Mon Sep  4 14:25:29 CST 2023 - Job 6/6 - Submitted batch job 1847012 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
+
+# Mon Sep  4 14:52:16 CST 2023 - Job 1/6 - Submitted batch job 1847501 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.60Percent-6604Neurons
+# Mon Sep  4 14:52:17 CST 2023 - Job 2/6 - Submitted batch job 1847502 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.80Percent-8806Neurons
+# Mon Sep  4 14:52:18 CST 2023 - Job 3/6 - Submitted batch job 1847503 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.90Percent-9907Neurons
+# Mon Sep  4 14:52:19 CST 2023 - Job 4/6 - Submitted batch job 1847504 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.95Percent-10457Neurons
+# Mon Sep  4 14:52:21 CST 2023 - Job 5/6 - Submitted batch job 1847505 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
+# Mon Sep  4 14:52:22 CST 2023 - Job 6/6 - Submitted batch job 1847506 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
+
+# Mon Sep  4 15:46:31 CST 2023 - Job 1/6 - Submitted batch job 1848509 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.60Percent-6604Neurons
+# Mon Sep  4 15:46:32 CST 2023 - Job 2/6 - Submitted batch job 1848510 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.80Percent-8806Neurons
+# Mon Sep  4 15:46:33 CST 2023 - Job 3/6 - Submitted batch job 1848511 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.90Percent-9907Neurons
+# Mon Sep  4 15:46:35 CST 2023 - Job 4/6 - Submitted batch job 1848512 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.95Percent-10457Neurons
+# Mon Sep  4 15:46:36 CST 2023 - Job 5/6 - Submitted batch job 1848513 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
+# Mon Sep  4 15:46:37 CST 2023 - Job 6/6 - Submitted batch job 1848514 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
+
+# Tue Sep  5 17:58:58 CST 2023 - Job 1/11 - Submitted batch job 1860843 - arc: /mnt/petrelfs/zhutong/smoe/outputs/cpt-fpt-resume-200b-1851221/checkpoint-1000
+# Tue Sep  5 17:58:59 CST 2023 - Job 2/11 - Submitted batch job 1860844 - arc: /mnt/petrelfs/zhutong/smoe/outputs/cpt-fpt-resume-200b-1851221/checkpoint-2000
+# Tue Sep  5 17:59:00 CST 2023 - Job 3/11 - Submitted batch job 1860845 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.20Percent-2201Neurons
+# Tue Sep  5 17:59:02 CST 2023 - Job 4/11 - Submitted batch job 1860846 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.25Percent-2752Neurons
+# Tue Sep  5 17:59:03 CST 2023 - Job 5/11 - Submitted batch job 1860847 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.40Percent-4403Neurons
+# Tue Sep  5 17:59:04 CST 2023 - Job 6/11 - Submitted batch job 1860848 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.60Percent-6604Neurons
+# Tue Sep  5 17:59:06 CST 2023 - Job 7/11 - Submitted batch job 1860849 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.80Percent-8806Neurons
+# Tue Sep  5 17:59:08 CST 2023 - Job 8/11 - Submitted batch job 1860850 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.90Percent-9907Neurons
+# Tue Sep  5 17:59:09 CST 2023 - Job 9/11 - Submitted batch job 1860851 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.95Percent-10457Neurons
+# Tue Sep  5 17:59:10 CST 2023 - Job 10/11 - Submitted batch job 1860852 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
+# Tue Sep  5 17:59:12 CST 2023 - Job 11/11 - Submitted batch job 1860853 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-min-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
+
+# Tue Sep  5 20:34:21 CST 2023 - Job 1/8 - Submitted batch job 1862281 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.99Percent-10897Neurons
+# Tue Sep  5 20:34:22 CST 2023 - Job 2/8 - Submitted batch job 1862294 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.98Percent-10787Neurons
+# Tue Sep  5 20:34:23 CST 2023 - Job 3/8 - Submitted batch job 1862302 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.95Percent-10457Neurons
+# Tue Sep  5 20:34:24 CST 2023 - Job 4/8 - Submitted batch job 1862303 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.90Percent-9907Neurons
+# Tue Sep  5 20:34:25 CST 2023 - Job 5/8 - Submitted batch job 1862304 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.80Percent-8806Neurons
+# Tue Sep  5 20:34:27 CST 2023 - Job 6/8 - Submitted batch job 1862305 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.60Percent-6604Neurons
+# Tue Sep  5 20:34:28 CST 2023 - Job 7/8 - Submitted batch job 1862306 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.40Percent-4403Neurons
+# Tue Sep  5 20:34:29 CST 2023 - Job 8/8 - Submitted batch job 1862307 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Random/llama_7B-0-0.25Percent-2752Neurons
+
+# Tue Sep  5 21:48:58 CST 2023 - Job 1/5 - Submitted batch job 1863776 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons
+# Tue Sep  5 21:48:59 CST 2023 - Job 2/5 - Submitted batch job 1863777 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons-Share
+# Tue Sep  5 21:49:00 CST 2023 - Job 3/5 - Submitted batch job 1863778 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-1376Neurons-Share
+# Tue Sep  5 21:49:02 CST 2023 - Job 4/5 - Submitted batch job 1863779 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-2752Neurons-Share
+# Tue Sep  5 21:49:03 CST 2023 - Job 5/5 - Submitted batch job 1863780 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share
+
+# Tue Sep  5 21:49:56 CST 2023 - Job 1/5 - Submitted batch job 1863807 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons
+# Tue Sep  5 21:49:57 CST 2023 - Job 2/5 - Submitted batch job 1863808 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons-Share
+# Tue Sep  5 21:49:58 CST 2023 - Job 3/5 - Submitted batch job 1863809 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-1376Neurons-Share
+# Tue Sep  5 21:49:59 CST 2023 - Job 4/5 - Submitted batch job 1863810 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-2752Neurons-Share
+# Tue Sep  5 21:50:01 CST 2023 - Job 5/5 - Submitted batch job 1863811 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share
+
+# Tue Sep  5 22:12:29 CST 2023 - Job 1/9 - Submitted batch job 1864090 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.20Percent-2201Neurons
+# Tue Sep  5 22:12:30 CST 2023 - Job 2/9 - Submitted batch job 1864091 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.25Percent-2752Neurons
+# Tue Sep  5 22:12:31 CST 2023 - Job 3/9 - Submitted batch job 1864092 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.40Percent-4403Neurons
+# Tue Sep  5 22:12:32 CST 2023 - Job 4/9 - Submitted batch job 1864093 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.60Percent-6604Neurons
+# Tue Sep  5 22:12:34 CST 2023 - Job 5/9 - Submitted batch job 1864094 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.80Percent-8806Neurons
+# Tue Sep  5 22:12:35 CST 2023 - Job 6/9 - Submitted batch job 1864095 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.90Percent-9907Neurons
+# Tue Sep  5 22:12:36 CST 2023 - Job 7/9 - Submitted batch job 1864096 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.95Percent-10457Neurons
+# Tue Sep  5 22:12:37 CST 2023 - Job 8/9 - Submitted batch job 1864097 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
+# Tue Sep  5 22:12:38 CST 2023 - Job 9/9 - Submitted batch job 1864098 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
+
+# Wed Sep  6 10:35:52 CST 2023 - Job 1/5 - Submitted batch job 1870271 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons
+# Wed Sep  6 10:35:53 CST 2023 - Job 2/5 - Submitted batch job 1870272 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons-Share
+# Wed Sep  6 10:35:55 CST 2023 - Job 3/5 - Submitted batch job 1870273 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-1376Neurons-Share
+# Wed Sep  6 10:35:56 CST 2023 - Job 4/5 - Submitted batch job 1870274 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-2752Neurons-Share
+# Wed Sep  6 10:35:57 CST 2023 - Job 5/5 - Submitted batch job 1870276 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share
+
+# Wed Sep  6 12:52:17 CST 2023 - Job 1/5 - Submitted batch job 1872930 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons
+# Wed Sep  6 12:52:18 CST 2023 - Job 2/5 - Submitted batch job 1872931 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-688Neurons-Share
+# Wed Sep  6 12:52:19 CST 2023 - Job 3/5 - Submitted batch job 1872932 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-1376Neurons-Share
+# Wed Sep  6 12:52:20 CST 2023 - Job 4/5 - Submitted batch job 1872933 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-2752Neurons-Share
+# Wed Sep  6 12:52:22 CST 2023 - Job 5/5 - Submitted batch job 1872934 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share
+
 # --
+# Wed Sep  6 17:23:55 CST 2023 - Job 1/5 - Submitted batch job 1877871 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-2Select1-5504Neurons
+# Wed Sep  6 17:23:56 CST 2023 - Job 2/5 - Submitted batch job 1877872 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-2Select1-5504Neurons-Share
+# Wed Sep  6 17:23:57 CST 2023 - Job 3/5 - Submitted batch job 1877873 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-4Select1-5504Neurons-Share
+# Wed Sep  6 17:23:59 CST 2023 - Job 4/5 - Submitted batch job 1877874 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-8Select1-5504Neurons-Share
+# Wed Sep  6 17:24:00 CST 2023 - Job 5/5 - Submitted batch job 1877875 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share

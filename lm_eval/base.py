@@ -729,6 +729,10 @@ class MultipleChoiceTask(Task):
         completion_len = np.array([float(len(i)) for i in doc["choices"]])
         acc_norm = 1.0 if np.argmax(results / completion_len) == gold else 0.0
 
+        # # zhutong: random choice
+        # acc = 1.0 if np.random.choice(np.arange(len(doc["choices"]))) == gold else 0.0
+        # acc_norm = acc
+
         return {
             "acc": acc,
             "acc_norm": acc_norm,

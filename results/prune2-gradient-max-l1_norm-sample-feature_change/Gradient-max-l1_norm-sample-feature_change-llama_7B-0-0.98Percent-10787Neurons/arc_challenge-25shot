@@ -1,0 +1,25 @@
+{
+  "results": {
+    "arc_challenge": {
+      "acc": 0.4726962457337884,
+      "acc_stderr": 0.01458958910198599,
+      "acc_norm": 0.5110921501706485,
+      "acc_norm_stderr": 0.01460779491401305
+    }
+  },
+  "versions": {
+    "arc_challenge": 0
+  },
+  "config": {
+    "model": "llama-moe-causal",
+    "model_args": "pretrained=/mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons,use_accelerate=True",
+    "num_fewshot": 25,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": null,
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

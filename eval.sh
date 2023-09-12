@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-#SBATCH --job-name=eval-moe-fpt-20k
+#SBATCH --job-name=eval-moe
 #SBATCH --output=logs/%x-%j.log
 #SBATCH --error=logs/%x-%j.log
 
@@ -9,16 +9,13 @@
 #SBATCH --cpus-per-task=8
 ##SBATCH --mem=0
 #SBATCH -x SH-IDCA1404-10-140-54-116
+#SBATCH --quotatype=auto
 
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:8
 
 source ~/anaconda3/bin/activate smoe
 
-num_nodes=1         # should match with --nodes
-num_gpu_per_node=8  # should match with --gres
-
-# #cpu/#num_gpu_per_node
 export OMP_NUM_THREADS=4
 export NCCL_DEBUG=INFO
 export LOGLEVEL=INFO
@@ -27,9 +24,9 @@ export LOGLEVEL=INFO
 # export CUDA_LAUNCH_BLOCKING=1
 
 {
-    # model_type="hf-causal-experimental"
-    # out_name="llama_reproduction"
-    # model_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama_7B"
+    model_type="hf-causal-experimental"
+    out_name="llama_reproduction"
+    model_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama_7B"
 
     # model_type="llama-moe-causal"
     # out_name="16select4_woCPT"
@@ -61,49 +58,50 @@ export LOGLEVEL=INFO
 
     # --------------------------------------------------------------------------------------------------------------------
 
-    model_type="llama-moe-causal"
-    model_dir=$1
-    out_name=$(python -c "import sys; print('-'.join(sys.argv[1].split('/')[-2:]))" $model_dir)
-    shift 1
+    # model_type="hf-causal-experimental"
+    # # model_type="llama-moe-causal"
+    # model_dir=$1
+    # out_name=$(python -c "import sys; print('-'.join(sys.argv[1].split('/')[-2:]))" $model_dir)
+    # shift 1
 
-    task_type=$1
+    # task_type=$1
 
-    case $task_type in 
-        "mmlu")        
-            task_name="mmlu-5shot"
-            tasks="hendrycksTest-abstract_algebra,hendrycksTest-anatomy,hendrycksTest-astronomy,hendrycksTest-business_ethics,hendrycksTest-clinical_knowledge,hendrycksTest-college_biology,hendrycksTest-college_chemistry,hendrycksTest-college_computer_science,hendrycksTest-college_mathematics,hendrycksTest-college_medicine,hendrycksTest-college_physics,hendrycksTest-computer_security,hendrycksTest-conceptual_physics,hendrycksTest-econometrics,hendrycksTest-electrical_engineering,hendrycksTest-elementary_mathematics,hendrycksTest-formal_logic,hendrycksTest-global_facts,hendrycksTest-high_school_biology,hendrycksTest-high_school_chemistry,hendrycksTest-high_school_computer_science,hendrycksTest-high_school_european_history,hendrycksTest-high_school_geography,hendrycksTest-high_school_government_and_politics,hendrycksTest-high_school_macroeconomics,hendrycksTest-high_school_mathematics,hendrycksTest-high_school_microeconomics,hendrycksTest-high_school_physics,hendrycksTest-high_school_psychology,hendrycksTest-high_school_statistics,hendrycksTest-high_school_us_history,hendrycksTest-high_school_world_history,hendrycksTest-human_aging,hendrycksTest-human_sexuality,hendrycksTest-international_law,hendrycksTest-jurisprudence,hendrycksTest-logical_fallacies,hendrycksTest-machine_learning,hendrycksTest-management,hendrycksTest-marketing,hendrycksTest-medical_genetics,hendrycksTest-miscellaneous,hendrycksTest-moral_disputes,hendrycksTest-moral_scenarios,hendrycksTest-nutrition,hendrycksTest-philosophy,hendrycksTest-prehistory,hendrycksTest-professional_accounting,hendrycksTest-professional_law,hendrycksTest-professional_medicine,hendrycksTest-professional_psychology,hendrycksTest-public_relations,hendrycksTest-security_studies,hendrycksTest-sociology,hendrycksTest-us_foreign_policy,hendrycksTest-virology,hendrycksTest-world_religions"
-            fewshot=5
-            ;;
-        "arc")
-            task_name="arc_challenge-25shot"
-            tasks="arc_challenge"
-            fewshot=25
-            ;;
-        "hellaswag")
-            task_name="hellaswag-10shot"
-            tasks="hellaswag"
-            fewshot=10
-            ;;
-        "triviaqa")
-            task_name="triviaqa-5shot"
-            tasks="triviaqa"
-            fewshot=5
-            ;;
-        "gsm8k")
-            task_name="gsm8k-8shot"
-            tasks="gsm8k"
-            fewshot=8
-            ;;
-        "truthfulqa")
-            task_name="truthfulqa-0shot"
-            tasks="truthfulqa_mc"
-            fewshot=0
-            ;;
-        *)
-            echo "$task_type task not supported!"
-            exit 1
-            ;;
-    esac
+    # case $task_type in 
+    #     "mmlu")        
+    #         task_name="mmlu-5shot"
+    #         tasks="hendrycksTest-abstract_algebra,hendrycksTest-anatomy,hendrycksTest-astronomy,hendrycksTest-business_ethics,hendrycksTest-clinical_knowledge,hendrycksTest-college_biology,hendrycksTest-college_chemistry,hendrycksTest-college_computer_science,hendrycksTest-college_mathematics,hendrycksTest-college_medicine,hendrycksTest-college_physics,hendrycksTest-computer_security,hendrycksTest-conceptual_physics,hendrycksTest-econometrics,hendrycksTest-electrical_engineering,hendrycksTest-elementary_mathematics,hendrycksTest-formal_logic,hendrycksTest-global_facts,hendrycksTest-high_school_biology,hendrycksTest-high_school_chemistry,hendrycksTest-high_school_computer_science,hendrycksTest-high_school_european_history,hendrycksTest-high_school_geography,hendrycksTest-high_school_government_and_politics,hendrycksTest-high_school_macroeconomics,hendrycksTest-high_school_mathematics,hendrycksTest-high_school_microeconomics,hendrycksTest-high_school_physics,hendrycksTest-high_school_psychology,hendrycksTest-high_school_statistics,hendrycksTest-high_school_us_history,hendrycksTest-high_school_world_history,hendrycksTest-human_aging,hendrycksTest-human_sexuality,hendrycksTest-international_law,hendrycksTest-jurisprudence,hendrycksTest-logical_fallacies,hendrycksTest-machine_learning,hendrycksTest-management,hendrycksTest-marketing,hendrycksTest-medical_genetics,hendrycksTest-miscellaneous,hendrycksTest-moral_disputes,hendrycksTest-moral_scenarios,hendrycksTest-nutrition,hendrycksTest-philosophy,hendrycksTest-prehistory,hendrycksTest-professional_accounting,hendrycksTest-professional_law,hendrycksTest-professional_medicine,hendrycksTest-professional_psychology,hendrycksTest-public_relations,hendrycksTest-security_studies,hendrycksTest-sociology,hendrycksTest-us_foreign_policy,hendrycksTest-virology,hendrycksTest-world_religions"
+    #         fewshot=5
+    #         ;;
+    #     "arc")
+    #         task_name="arc_challenge-25shot"
+    #         tasks="arc_challenge"
+    #         fewshot=25
+    #         ;;
+    #     "hellaswag")
+    #         task_name="hellaswag-10shot"
+    #         tasks="hellaswag"
+    #         fewshot=10
+    #         ;;
+    #     "triviaqa")
+    #         task_name="triviaqa-5shot"
+    #         tasks="triviaqa"
+    #         fewshot=5
+    #         ;;
+    #     "gsm8k")
+    #         task_name="gsm8k-8shot"
+    #         tasks="gsm8k"
+    #         fewshot=8
+    #         ;;
+    #     "truthfulqa")
+    #         task_name="truthfulqa-0shot"
+    #         tasks="truthfulqa_mc"
+    #         fewshot=0
+    #         ;;
+    #     *)
+    #         echo "$task_type task not supported!"
+    #         exit 1
+    #         ;;
+    # esac
 
     # --------------------------------------------------------------------------------------------------------------------
 
@@ -111,9 +109,9 @@ export LOGLEVEL=INFO
     # tasks="hendrycksTest-abstract_algebra,hendrycksTest-anatomy,hendrycksTest-astronomy,hendrycksTest-business_ethics,hendrycksTest-clinical_knowledge,hendrycksTest-college_biology,hendrycksTest-college_chemistry,hendrycksTest-college_computer_science,hendrycksTest-college_mathematics,hendrycksTest-college_medicine,hendrycksTest-college_physics,hendrycksTest-computer_security,hendrycksTest-conceptual_physics,hendrycksTest-econometrics,hendrycksTest-electrical_engineering,hendrycksTest-elementary_mathematics,hendrycksTest-formal_logic,hendrycksTest-global_facts,hendrycksTest-high_school_biology,hendrycksTest-high_school_chemistry,hendrycksTest-high_school_computer_science,hendrycksTest-high_school_european_history,hendrycksTest-high_school_geography,hendrycksTest-high_school_government_and_politics,hendrycksTest-high_school_macroeconomics,hendrycksTest-high_school_mathematics,hendrycksTest-high_school_microeconomics,hendrycksTest-high_school_physics,hendrycksTest-high_school_psychology,hendrycksTest-high_school_statistics,hendrycksTest-high_school_us_history,hendrycksTest-high_school_world_history,hendrycksTest-human_aging,hendrycksTest-human_sexuality,hendrycksTest-international_law,hendrycksTest-jurisprudence,hendrycksTest-logical_fallacies,hendrycksTest-machine_learning,hendrycksTest-management,hendrycksTest-marketing,hendrycksTest-medical_genetics,hendrycksTest-miscellaneous,hendrycksTest-moral_disputes,hendrycksTest-moral_scenarios,hendrycksTest-nutrition,hendrycksTest-philosophy,hendrycksTest-prehistory,hendrycksTest-professional_accounting,hendrycksTest-professional_law,hendrycksTest-professional_medicine,hendrycksTest-professional_psychology,hendrycksTest-public_relations,hendrycksTest-security_studies,hendrycksTest-sociology,hendrycksTest-us_foreign_policy,hendrycksTest-virology,hendrycksTest-world_religions"
     # fewshot=5
 
-    # task_name="arc_challenge-25shot"
-    # tasks="arc_challenge"
-    # fewshot=25
+    task_name="arc_challenge-25shot"
+    tasks="arc_challenge"
+    fewshot=25
 
     # task_name="gsm8k-8shot"
     # tasks="gsm8k"
@@ -140,5 +138,20 @@ export LOGLEVEL=INFO
         --num_fewshot=${fewshot} \
         --batch_size=2 \
         --no_cache \
-        --output_path="results/${out_name}/${task_name}"
+        --output_path="results/arc-random-choice/${out_name}/${task_name}"
+        # --output_path="results/ShareOrNotShare-SelectAblation-20230906-1849/${out_name}/${task_name}"
+        # --output_path="results/ShareOrNotShare-16_select_12-20230906-1045/${out_name}/${task_name}"
+        # --output_path="results/ShareOrNotShare_20230906_1035/${out_name}/${task_name}"
 }
+
+# keep-0.99: 1901077
+# keep-0.9: 1893315
+# keep-0.8: 1901117
+# keep-0.6: 1901801
+# keep-0.4: 1903165
+
+# keep-0.99: 1903502
+# keep-0.9: 1903479
+# keep-0.8: 1903475
+# keep-0.6: 1903398
+# keep-0.4: 1903294
