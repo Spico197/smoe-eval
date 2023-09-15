@@ -4,11 +4,10 @@ This repo is forked from [lm-evaluation-harness](https://github.com/EleutherAI/l
 
 ## 🚀 SMoE Evaluation
 
-Check `eval.sh`. You may use `sbatch eval.sh <model_dir>` to start evaluation.
-
-- For convenient multiple job submission, check `multi_jobs.sh`.
-- New model folders may not contain tokenizer files, so you may need to copy them from the original model folder. See `cp_tokenizer.sh`.
-- For automatic submitting jobs, check `watch_and_eval.py`. You may use `python watch_and_eval.py <model_dir>` to start watching and evaluating.
+1. Installation: `pip instal -e .`
+2. Check `multi_jobs.sh`, change the model directories and tasks you wanna evaluate.
+3. If you want to evaluate on vanilla llama models, change `model_type` in `eval.sh` to `hf-causal-experimental`.
+4. For the MMLU task with multiple sub-tasks, use `python calc_mean.py -d <directory>` to calculate the average score of the sub-tasks. You can find the directory in `results`. The default folder name is `<model dir's parent dir>-<model dir's name>`.
 
 Below are readme messages from the original repo.
 

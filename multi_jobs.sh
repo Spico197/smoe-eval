@@ -158,6 +158,31 @@ tasks=(
     # "mmlu"
 )
 
+tokenizer_files=(
+  "tokenizer_config.json"
+  "tokenizer.model"
+  "special_tokens_map.json"
+  "tokenizer.json"
+)
+
+tokenizer_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama_7B"
+#tokenizer_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama2_7B"
+#tokenizer_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama_13B"
+
+# Loop through the directories and copy 'a.py' into them
+for dir in "${folders[@]}"; do
+  for token_file in "${tokenizer_files[@]}"; do
+    if [ ! -L "$dir/$token_file" ]; then
+      ln -s "$tokenizer_dir/$token_file" "$dir/$token_file"
+      echo "Done: $dir"
+    fi
+    #    if [ ! -f "$dir/$token_file" ]; then
+    #      cp "$tokenizer_dir/$token_file" "$dir/"
+    #      echo "Done: $dir"
+    #    fi
+  done
+done
+
 num_jobs=$(echo "${#folders[@]} * ${#tasks[@]}" | bc)
 
 i=0
