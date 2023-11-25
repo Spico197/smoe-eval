@@ -363,9 +363,11 @@ class BaseLM(LM):
 
                 # Slice to original seq length
                 contlen = len(cont_toks)
+                # zhutong: logits refer to continuous tokens
+                # [1, seq, vocab]
                 logits = logits[inplen - contlen : inplen].unsqueeze(
                     0
-                )  # [1, seq, vocab]
+                )
 
                 # Check if per-token argmax is exactly equal to continuation
                 greedy_tokens = logits.argmax(dim=-1)

@@ -143,11 +143,22 @@ folders=(
     # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.98Percent-10787Neurons
     # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM-Prune2/Gradient-max-l1_norm-sample-feature_change/llama_7B-0-0.99Percent-10897Neurons
 
-    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-2Select1-5504Neurons
-    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-2Select1-5504Neurons-Share
-    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-4Select1-5504Neurons-Share
-    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-8Select1-5504Neurons-Share
-    /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-2Select1-5504Neurons
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-2Select1-5504Neurons-Share
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-4Select1-5504Neurons-Share
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-8Select1-5504Neurons-Share
+    # /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share
+
+    # /mnt/petrelfs/share_data/quxiaoye/models/tzhu_model_bak/cpt-moe-fpt-64gpus-bs16_2-zero1default-1600316/checkpoint-23000/
+
+    # /mnt/petrelfs/share_data/quxiaoye/models/llama_7B
+    # /mnt/petrelfs/zhutong/smoe/outputs/random_split_scale4_112gpus_11900steps_dense
+    # /mnt/petrelfs/zhutong/smoe/outputs/random_split_scale4_112gpus_11900steps/checkpoint-11900
+    # /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2315487/checkpoint-510
+    # /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2319068/checkpoint-1020
+    /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2319068/checkpoint-1360
+
+    # /mnt/petrelfs/zhutong/smoe/outputs/cpt-moe-fpt-56gpus-bs16_2-zero1default-gateloss0.1-1719794/checkpoint-27000
 )
 
 tasks=(
@@ -165,23 +176,23 @@ tokenizer_files=(
   "tokenizer.json"
 )
 
-tokenizer_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama_7B"
-#tokenizer_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama2_7B"
+# tokenizer_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama_7B"
+tokenizer_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama2_7B"
 #tokenizer_dir="/mnt/petrelfs/share_data/quxiaoye/models/llama_13B"
 
-# Loop through the directories and copy 'a.py' into them
-for dir in "${folders[@]}"; do
-  for token_file in "${tokenizer_files[@]}"; do
-    if [ ! -L "$dir/$token_file" ]; then
-      ln -s "$tokenizer_dir/$token_file" "$dir/$token_file"
-      echo "Done: $dir"
-    fi
-    #    if [ ! -f "$dir/$token_file" ]; then
-    #      cp "$tokenizer_dir/$token_file" "$dir/"
-    #      echo "Done: $dir"
-    #    fi
-  done
-done
+# # Loop through the directories and copy 'a.py' into them
+# for dir in "${folders[@]}"; do
+#     for token_file in "${tokenizer_files[@]}"; do
+#         if [ ! -L "$dir/$token_file" ]; then
+#             ln -s "$tokenizer_dir/$token_file" "$dir/$token_file"
+#             echo "Tokenizer ${token_file} Copy Done: $dir"
+#         fi
+#         #    if [ ! -f "$dir/$token_file" ]; then
+#         #      cp "$tokenizer_dir/$token_file" "$dir/"
+#         #      echo "Done: $dir"
+#         #    fi
+#     done
+# done
 
 num_jobs=$(echo "${#folders[@]} * ${#tasks[@]}" | bc)
 
@@ -446,3 +457,21 @@ done
 # Wed Sep  6 17:23:57 CST 2023 - Job 3/5 - Submitted batch job 1877873 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-4Select1-5504Neurons-Share
 # Wed Sep  6 17:23:59 CST 2023 - Job 4/5 - Submitted batch job 1877874 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-8Select1-5504Neurons-Share
 # Wed Sep  6 17:24:00 CST 2023 - Job 5/5 - Submitted batch job 1877875 - arc: /mnt/petrelfs/share_data/quxiaoye/models/LlamaMoEForCausalLM/Gradient-max-l1_norm-sample-feature_change/llama_7B-16Select4-5504Neurons-Share
+
+# swish to relu
+# Mon Nov  6 10:17:59 CST 2023 - Job 1/1 - Submitted batch job 2228331 - arc: /mnt/petrelfs/share_data/quxiaoye/models/llama_7B
+# original swish: Mon Nov  6 10:54:52 CST 2023 - Job 1/1 - Submitted batch job 2228395 - arc: /mnt/petrelfs/share_data/quxiaoye/models/llama_7B
+# moe to dense: Wed Nov  8 14:57:01 CST 2023 - Job 1/1 - Submitted batch job 2232100 - arc: /mnt/petrelfs/zhutong/smoe/outputs/random_split_scale4_112gpus_11900steps_dense
+# 16/16: Wed Nov  8 16:34:51 CST 2023 - Job 1/1 - Submitted batch job 2232464 - arc: /mnt/petrelfs/zhutong/smoe/outputs/random_split_scale4_112gpus_11900steps/checkpoint-11900
+
+# Wed Nov 22 11:40:49 CST 2023 - Job 1/2 - Submitted batch job 2317633 - arc: /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2315487/checkpoint-510
+# Wed Nov 22 11:40:50 CST 2023 - Job 2/2 - Submitted batch job 2317634 - hellaswag: /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2315487/checkpoint-510
+# (smoe) zhutong @ SH-IDC1-10-140-37-162 : ~/lm-evaluation-harness-b281b0921b636bc36ad05c0b0b0763bd6dd43463 (main)
+# $ bash multi_jobs.sh
+# Wed Nov 22 19:01:23 CST 2023 - Job 1/2 - Submitted batch job 2319177 - arc: /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2315487/checkpoint-510
+# Wed Nov 22 19:01:25 CST 2023 - Job 2/2 - Submitted batch job 2319178 - hellaswag: /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2315487/checkpoint-510
+# (smoe) zhutong @ SH-IDC1-10-140-37-162 : ~/lm-evaluation-harness-b281b0921b636bc36ad05c0b0b0763bd6dd43463 (main)
+# $ bash multi_jobs.sh
+# Wed Nov 22 20:03:53 CST 2023 - Job 1/1 - Submitted batch job 2319284 - arc: /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2315487/checkpoint-510
+# Thu Nov 23 10:39:20 CST 2023 - Job 1/1 - Submitted batch job 2320158 - arc: /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2319068/checkpoint-1020
+# Thu Nov 23 11:38:34 CST 2023 - Job 1/1 - Submitted batch job 2320274 - arc: /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2319068/checkpoint-1360

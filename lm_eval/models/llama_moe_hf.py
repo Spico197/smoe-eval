@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 from transformers import BatchEncoding
 from transformers.models.llama.tokenization_llama_fast import LlamaTokenizerFast
-from smoe.models.llama_moefication import LlamaMoEForCausalLM, LlamaMoEConfig, LlamaMoEModel
+from smoe.models.llama_moe import LlamaMoEForCausalLM, LlamaMoEConfig, LlamaMoEModel
 
 from lm_eval import utils
 from lm_eval.base import BaseLM
@@ -217,7 +217,7 @@ class LlamaMoEHfLM(BaseLM):
                 max_cpu_memory,
                 offload_folder,
             )
-        self.model = self._create_auto_model(
+        self.model: LlamaMoEForCausalLM = self._create_auto_model(
             pretrained=pretrained,
             quantized=quantized,
             trust_remote_code=trust_remote_code,
@@ -231,6 +231,7 @@ class LlamaMoEHfLM(BaseLM):
             bnb_4bit_compute_dtype=bnb_4bit_compute_dtype,
             **model_kwargs,
         )
+        # self.model.set_moe_num_selects(16)
         # note: peft_path can be different than pretrained model path
         if peft is not None:
             self.model = self._create_auto_model_peft(

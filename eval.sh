@@ -12,7 +12,7 @@
 #SBATCH --quotatype=auto
 
 #SBATCH --nodes=1
-##SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:1
 
 source ~/anaconda3/bin/activate smoe
 
@@ -90,9 +90,9 @@ export LOGLEVEL=INFO
             fewshot=5
             ;;
         "gsm8k")
-            task_name="gsm8k-8shot"
+            task_name="gsm8k-4shot"
             tasks="gsm8k"
-            fewshot=8
+            fewshot=4
             ;;
         "truthfulqa")
             task_name="truthfulqa-0shot"
@@ -143,7 +143,7 @@ export LOGLEVEL=INFO
         --batch_size=2 \
         --no_cache \
         --output_path=${output_filepath} \
-        --device "cuda"
+        --device "cuda:0"
         # --output_path="results/ShareOrNotShare-SelectAblation-20230906-1849/${out_name}/${task_name}"
         # --output_path="results/ShareOrNotShare-16_select_12-20230906-1045/${out_name}/${task_name}"
         # --output_path="results/ShareOrNotShare_20230906_1035/${out_name}/${task_name}"

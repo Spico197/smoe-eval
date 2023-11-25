@@ -1,0 +1,25 @@
+{
+  "results": {
+    "arc_challenge": {
+      "acc": 0.2098976109215017,
+      "acc_stderr": 0.011900548748047444,
+      "acc_norm": 0.2764505119453925,
+      "acc_norm_stderr": 0.013069662474252428
+    }
+  },
+  "versions": {
+    "arc_challenge": 0
+  },
+  "config": {
+    "model": "hf-causal-experimental",
+    "model_args": "pretrained=/mnt/petrelfs/zhutong/smoe/outputs/random_split_scale4_112gpus_11900steps_dense,use_accelerate=True",
+    "num_fewshot": 25,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

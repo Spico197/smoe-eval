@@ -111,7 +111,7 @@ class GeneralHendrycksTest(MultipleChoiceTask):
         super().__init__()
 
     def has_training_docs(self):
-        return True
+        return False
 
     def has_validation_docs(self):
         return True

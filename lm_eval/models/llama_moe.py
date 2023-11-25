@@ -2,7 +2,7 @@ from typing import Optional, Union
 
 import torch
 import transformers
-from smoe.models.llama_moefication import LlamaMoEForCausalLM
+from smoe.models.llama_moe import LlamaMoEForCausalLM
 
 from lm_eval.base import BaseLM
 from .gpt2 import _get_dtype
