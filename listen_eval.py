@@ -82,6 +82,8 @@ def listen(
     results_folder = Path(f"results/{abbr}")
     log_dir = "logs"
 
+    logger.info(f"Listerning model results for {abbr} ({tasks}) in {folder}, model_type: {model_type}")
+
     notified = []
     if evaluated is None:
         evaluated = []
@@ -143,9 +145,23 @@ def listen(
 
 
 if __name__ == "__main__":
+    # listen(
+    #     "sheared_llama_portion_no_ad",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2323841/",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=[("340", "arc"), ("340", "hellaswag")],
+    # )
+
+    # listen(
+    #     "sheared_llama_portion_gate_loss_0.1",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2325457/",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=None,
+    # )
+
     listen(
-        "sheared_llama_portion_no_ad",
-        "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2323339/",
+        "sheared_llama_portion_fluency",
+        "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2326233/",
         tasks=["arc", "hellaswag"],
-        evaluated=[("340", "arc"), ("340", "hellaswag")],
+        evaluated=None,
     )
