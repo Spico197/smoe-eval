@@ -2,6 +2,7 @@
 nohup python listen_eval.py > eval_listen_no_ad.log 2>&1 &
 """
 
+import os
 import time
 import json
 import subprocess
@@ -10,10 +11,10 @@ from typing import Tuple, List
 
 from dotenv import load_dotenv
 from loguru import logger
-from smoe.utils.notification import send_to_wechat
+from smoe.utils.notification import send_to_wechat, wechat_sender
 
 
-load_dotenv()
+assert load_dotenv()
 logger.add("listen.log")
 
 
@@ -66,11 +67,15 @@ def run_command(command):
         logger.error(f"An error occurred: {e}")
 
 
+@wechat_sender(msg_prefix="Listening Evaluation Worker")
 def listen(
     abbr: str,
     folder: str,
     tasks: List[str] = ["arc", "hellaswag"],
     evaluated: List[Tuple[str, str]] = None,
+    moved: List[str] = None,
+    run_eval: bool = True,
+    run_move: bool = False,
 ):
     """
     Args:
@@ -82,11 +87,18 @@ def listen(
     results_folder = Path(f"results/{abbr}")
     log_dir = "logs"
 
-    logger.info(f"Listerning model results for {abbr} ({tasks}) in {folder}, model_type: {model_type}")
+    remote_dir = os.environ.get("REMOTE_DIR")
+    if run_move:
+        assert remote_dir is not None
+    logger.info(
+        f"Listerning model results for {abbr} ({tasks}) in {folder}, model_type: {model_type}"
+    )
 
     notified = []
     if evaluated is None:
         evaluated = []
+    if moved is None:
+        moved = []
     for ckpt_id, task in evaluated:
         notified.append((ckpt_id, task))
     Path(log_dir).mkdir(exist_ok=True, parents=True)
@@ -96,50 +108,74 @@ def listen(
         available_folders = list(folder.glob("checkpoint-*"))
         for ckpt_folder in available_folders:
             ckpt_id = ckpt_folder.name.split("-")[-1]
-            for task in tasks:
-                out_path = results_folder / f"{ckpt_id}-{SETTINGS[task]['task_name']}.json"
-
-                # notification
-                if out_path.exists() and (ckpt_id, task) not in notified and (ckpt_id, task) in evaluated:
-                    logger.info(f"Results detected: Task {task} for {abbr}, folder: {str(ckpt_folder)}")
-                    time.sleep(3)
-                    results = json.load(out_path.open("r", encoding="utf8"))
-                    results_str = json.dumps(results, ensure_ascii=False, indent=2)
-                    logger.info(results_str)
-                    send_to_wechat(f"Abbr: {abbr}, Task: {task}, Ckpt: {ckpt_id} " + results_str)
-                    notified.append((ckpt_id, task))
-                if (ckpt_id, task) in evaluated:
-                    continue
-
-                logger.info(
-                    f"Evaluating task {task} for {abbr}, folder: {str(ckpt_folder)}"
-                )
+            if (run_move and ckpt_id not in moved) or (
+                run_eval and ckpt_id not in [x[0] for x in evaluated]
+            ):
+                logger.info(f"New ckpt detected: {ckpt_id}")
                 logger.info(
                     f"Sleep for {sleep_interval} seconds to avoid incomplete dumping"
                 )
                 time.sleep(sleep_interval)
-                logger.info(f"Dest path: {str(out_path)}")
 
-                cmd_args = [
-                    f"--model='{model_type}'",
-                    f"--model_args='pretrained={str(ckpt_folder)},use_accelerate=True'",
-                    f"--tasks='{SETTINGS[task]['tasks']}'",
-                    f"--num_fewshot={SETTINGS[task]['fewshot']}",
-                    f"--batch_size={batch_size}",
-                    "--no_cache",
-                    f"--output_path='{str(out_path)}'",
-                    "--device='cuda:0'",
-                ]
-                log_path = f"{log_dir}/{abbr}-{ckpt_id}-{task}.log"
+            if run_eval:
+                for task in tasks:
+                    if (ckpt_id, task) in evaluated:
+                        continue
+                    out_path = (
+                        results_folder / f"{ckpt_id}-{SETTINGS[task]['task_name']}.json"
+                    )
+                    # notification
+                    if (
+                        out_path.exists()
+                        and (ckpt_id, task) not in notified
+                        and (ckpt_id, task) in evaluated
+                    ):
+                        logger.info(
+                            f"Results detected: Task {task} for {abbr}, folder: {str(ckpt_folder)}"
+                        )
+                        time.sleep(3)
+                        results = json.load(out_path.open("r", encoding="utf8"))
+                        results_str = json.dumps(results, ensure_ascii=False, indent=2)
+                        logger.info(results_str)
+                        send_to_wechat(
+                            f"Abbr: {abbr}, Task: {task}, Ckpt: {ckpt_id} "
+                            + results_str
+                        )
+                        notified.append((ckpt_id, task))
+
+                    logger.info(
+                        f"Evaluating task {task} for {abbr}, folder: {str(ckpt_folder)}"
+                    )
+                    logger.info(f"Dest path: {str(out_path)}")
+
+                    cmd_args = [
+                        f"--model='{model_type}'",
+                        f"--model_args='pretrained={str(ckpt_folder)},use_accelerate=True'",
+                        f"--tasks='{SETTINGS[task]['tasks']}'",
+                        f"--num_fewshot={SETTINGS[task]['fewshot']}",
+                        f"--batch_size={batch_size}",
+                        "--no_cache",
+                        f"--output_path='{str(out_path)}'",
+                        "--device='cuda:0'",
+                    ]
+                    log_path = f"{log_dir}/{abbr}-{ckpt_id}-{task}.log"
+                    run_command(
+                        "nohup srun -p MoE -n1 -N1 --gres=gpu:1 --quotatype=auto "
+                        + f"--output={log_path} "
+                        + f"--error={log_path} "
+                        + "python main.py "
+                        + " ".join(cmd_args)
+                        + f" 1>{log_path} 2>&1 &"
+                    )
+                    evaluated.append((ckpt_id, task))
+
+            if ckpt_id not in moved and run_move:
                 run_command(
-                    "nohup srun -p MoE -n1 -N1 --gres=gpu:1 --quotatype=auto "
-                    + f"--output={log_path} "
-                    + f"--error={log_path} "
-                    + "python main.py "
-                    + " ".join(cmd_args)
-                    + f" 1>{log_path} 2>&1 &"
+                    "https_proxy='' http_proxy='' nohup srun -p MoE -n1 -N1 --gres=gpu:1 --quotatype=auto "
+                    + f"aws s3 cp {str(ckpt_folder)} {remote_dir}/{abbr}/{ckpt_id} --recursive "
+                    + f"1>{log_dir}/{abbr}-{ckpt_id}-move_to_remote.log 2>&1 &"
                 )
-                evaluated.append((ckpt_id, task))
+                moved.append(ckpt_id)
 
         time.sleep(sleep_interval)
 
@@ -159,9 +195,18 @@ if __name__ == "__main__":
     #     evaluated=None,
     # )
 
+    # listen(
+    #     "sheared_llama_portion_fluency",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2326233/",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=[("3400", "arc"), ("3400", "hellaswag")],
+    # )
     listen(
         "sheared_llama_portion_fluency",
         "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2326233/",
         tasks=["arc", "hellaswag"],
         evaluated=None,
+        moved=["6120"],
+        run_eval=False,
+        run_move=True,
     )

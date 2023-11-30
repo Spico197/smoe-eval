@@ -7,9 +7,12 @@ from typing import Optional
 
 import torch
 import numpy as np
+from dotenv import load_dotenv
+from smoe.utils.notification import wechat_sender
 
 from lm_eval import tasks, evaluator, utils
 
+assert load_dotenv()
 logging.getLogger("openai").setLevel(logging.WARNING)
 
 
@@ -51,6 +54,7 @@ def parse_args():
     return parser.parse_args()
 
 
+@wechat_sender(msg_prefix="Ckpt Evaluation")
 def main():
     args = parse_args()
 
