@@ -5,6 +5,7 @@ nohup python listen_eval.py > eval_listen_no_ad.log 2>&1 &
 import os
 import time
 import json
+import argparse
 import subprocess
 from pathlib import Path
 from typing import Tuple, List
@@ -201,12 +202,101 @@ if __name__ == "__main__":
     #     tasks=["arc", "hellaswag"],
     #     evaluated=[("3400", "arc"), ("3400", "hellaswag")],
     # )
+    # listen(
+    #     "sheared_llama_portion_fluency",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2326233/",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=None,
+    #     moved=["6120"],
+    #     run_eval=False,
+    #     run_move=True,
+    # )
+
+    # listen(
+    #     "sheared_fluency_16_2_sf4",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_16_2/outputs/cpt-llama2_random_split_112gpus_16_2_scale_factor_8-2340407/",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=None,
+    #     moved=None,
+    #     run_eval=False,
+    #     run_move=True,
+    # )
+
+    # listen(
+    #     "sheared_fluency_16_2_realsf4",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_16_2/outputs/cpt-llama2_random_split_112gpus_16_2_scale_factor_4-2341474/",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=None,
+    #     moved=None,
+    #     run_eval=False,
+    #     run_move=True,
+    # )
+
+    # listen(
+    #     "sheared_fluency_16_2_sf8_part2",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_16_2/outputs/cpt-llama2_random_split_112gpus_16_2_scale_factor_8-2342244/",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=None,
+    #     moved=None,
+    #     run_eval=False,
+    #     run_move=True,
+    # )
+
+    # listen(
+    #     "sheared_fluency_16_4_part2",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2356022",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=None,
+    #     moved=None,
+    #     run_eval=False,
+    #     run_move=True,
+    # )
+
+    # listen(
+    #     "sheared_fluency_8_2",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_8_2/outputs/cpt-llama2_random_split_112gpus_8_2-2377343/",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=None,
+    #     moved=None,
+    #     run_eval=True,
+    #     run_move=False,
+    # )
+
+    # listen(
+    #     "sheared_fluency_8_2",
+    #     "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_8_2/outputs/cpt-llama2_random_split_112gpus_8_2-2377343/",
+    #     tasks=["arc", "hellaswag"],
+    #     evaluated=None,
+    #     moved=None,
+    #     run_eval=False,
+    #     run_move=True,
+    # )
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("abbr", type=str)
+    parser.add_argument("folder", type=str)
+    parser.add_argument("--tasks", type=str, default="arc,hellaswag")
+    parser.add_argument("--evaluated", type=str, default=None, help="ckpt_id,task#ckpt_id,task")
+    parser.add_argument("--moved", type=str, default=None, help="ckpt_id#ckpt_id")
+    parser.add_argument("--run_eval", action="store_true")
+    parser.add_argument("--run_move", action="store_true")
+    args = parser.parse_args()
+
+    tasks = args.tasks.split(",")
+    evaluated = []
+    if args.evaluated is not None:
+        for x in args.evaluated.split("#"):
+            evaluated.append(tuple(x.split(",")))
+    moved = []
+    if args.moved is not None:
+        moved = args.moved.split("#")
+
     listen(
-        "sheared_llama_portion_fluency",
-        "/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_scale4_112gpus_dynamic_data/outputs/cpt-llama2_random_scale4_112gpus_dynamic_data-2326233/",
-        tasks=["arc", "hellaswag"],
-        evaluated=None,
-        moved=["6120"],
-        run_eval=False,
-        run_move=True,
+        args.abbr,
+        args.folder,
+        tasks=tasks,
+        evaluated=evaluated,
+        moved=moved,
+        run_eval=args.run_eval,
+        run_move=args.run_move,
     )

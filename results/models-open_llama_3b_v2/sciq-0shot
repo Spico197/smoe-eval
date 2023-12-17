@@ -1,0 +1,25 @@
+{
+  "results": {
+    "sciq": {
+      "acc": 0.925,
+      "acc_stderr": 0.008333333333333361,
+      "acc_norm": 0.88,
+      "acc_norm_stderr": 0.010281328012747386
+    }
+  },
+  "versions": {
+    "sciq": 0
+  },
+  "config": {
+    "model": "hf-causal-experimental",
+    "model_args": "pretrained=/mnt/petrelfs/share_data/quxiaoye/models/open_llama_3b_v2,use_accelerate=True",
+    "num_fewshot": 0,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

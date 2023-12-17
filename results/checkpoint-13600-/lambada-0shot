@@ -1,0 +1,25 @@
+{
+  "results": {
+    "lambada_standard": {
+      "ppl": 5.10118390683513,
+      "ppl_stderr": 0.11509013678124182,
+      "acc": 0.6429264506112944,
+      "acc_stderr": 0.006675311856122315
+    }
+  },
+  "versions": {
+    "lambada_standard": 0
+  },
+  "config": {
+    "model": "llama-moe-causal",
+    "model_args": "pretrained=/mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_16_2/outputs/cpt-llama2_random_split_112gpus_16_2_scale_factor_8-2342244/checkpoint-13600/,use_accelerate=True,dtype=float32",
+    "num_fewshot": 32,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

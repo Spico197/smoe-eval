@@ -79,6 +79,21 @@ export LOGLEVEL=INFO
             tasks="arc_challenge"
             fewshot=25
             ;;
+        "boolq")
+            task_name="boolq-32shot"
+            tasks="boolq"
+            fewshot=32
+            ;;
+        "arc_e")
+            task_name="arc_easy-0shot"
+            tasks="arc_easy"
+            fewshot=0
+            ;;
+        "piqa")
+            task_name="piqa-0shot"
+            tasks="piqa"
+            fewshot=0
+            ;;
         "hellaswag")
             task_name="hellaswag-10shot"
             tasks="hellaswag"
@@ -98,6 +113,41 @@ export LOGLEVEL=INFO
             task_name="truthfulqa-0shot"
             tasks="truthfulqa_mc"
             fewshot=0
+            ;;
+        "sciq")
+            task_name="sciq-0shot"
+            tasks="sciq"
+            fewshot=0
+            ;;
+        "piqa")
+            task_name="piqa-0shot"
+            tasks="piqa"
+            fewshot=0
+            ;;
+        "winogrande")
+            task_name="winogrande-0shot"
+            tasks="winogrande"
+            fewshot=0
+            ;;
+        "logiqa")
+            task_name="logiqa-0shot"
+            tasks="logiqa"
+            fewshot=0
+            ;;
+        "boolq")
+            task_name="boolq-32shot"
+            tasks="boolq"
+            fewshot=32
+            ;;
+        "lambada")
+            task_name="lambada-0shot"
+            tasks="lambada_standard"
+            fewshot=32
+            ;;
+        "nq")
+            task_name="nq-32shot"
+            tasks="naturalqs"
+            fewshot=32
             ;;
         *)
             echo "$task_type task not supported!"
@@ -162,3 +212,15 @@ export LOGLEVEL=INFO
 # keep-0.8: 1903475
 # keep-0.6: 1903398
 # keep-0.4: 1903294
+
+# $ sbt eval.sh /mnt/petrelfs/share_data/quxiaoye/models/open_llama_3b_v2 sciq
+# $ sbt eval.sh /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_16_2/outputs/cpt-llama2_random_split_112gpus_16_2_scale_factor_8-2342244/checkpoint-13600/ sciq
+# Submitted batch job 2370861
+# $ sbt eval.sh /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_16_2/outputs/cpt-llama2_random_split_112gpus_16_2_scale_factor_8-2342244/checkpoint-13600/ arc_e
+# Submitted batch job 2370866
+# $ sbt eval.sh /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_16_2/outputs/cpt-llama2_random_split_112gpus_16_2_scale_factor_8-2342244/checkpoint-13600/ piqa
+# Submitted batch job 2370899
+# $ sbt eval.sh /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_16_2/outputs/cpt-llama2_random_split_112gpus_16_2_scale_factor_8-2342244/checkpoint-13600/ arc
+# Submitted batch job 2371074
+# $ sbt eval.sh /mnt/petrelfs/share_data/quxiaoye/runs/llama2_random_split_112gpus_16_2/outputs/cpt-llama2_random_split_112gpus_16_2_scale_factor_8-2342244/checkpoint-13600/ boolq
+# Submitted batch job 2371076

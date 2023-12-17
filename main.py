@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 from smoe.utils.notification import wechat_sender
 
 from lm_eval import tasks, evaluator, utils
+from calc_mean import calc_mean
 
 assert load_dotenv()
 logging.getLogger("openai").setLevel(logging.WARNING)
@@ -101,6 +102,8 @@ def main():
         os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
         with open(args.output_path, "w") as f:
             f.write(dumped)
+        if "mmlu" in args.output_path:
+            print(f"MMLU mean: {calc_mean(results['results'].values())}")
 
     batch_sizes = ",".join(map(str, results["config"]["batch_sizes"]))
     print(
