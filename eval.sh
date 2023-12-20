@@ -4,17 +4,17 @@
 #SBATCH --output=logs/%x-%j.log
 #SBATCH --error=logs/%x-%j.log
 
-#SBATCH --partition=MoE
+#SBATCH --partition=MoE_T
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
 ##SBATCH --mem=0
-#SBATCH -x SH-IDCA1404-10-140-54-116
 #SBATCH --quotatype=auto
 
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 
-source ~/anaconda3/bin/activate smoe
+# source ~/anaconda3/bin/activate smoe
+source ~/miniconda3/bin/activate smoe
 
 mkdir -p logs
 
@@ -62,6 +62,8 @@ export LOGLEVEL=INFO
 
     # model_type="hf-causal-experimental"
     model_type="llama-moe-causal"
+    # model_type="mixtral"
+    # model_type="mistral"
     model_dir=$1
     out_name=$(python -c "import sys; print('-'.join(sys.argv[1].split('/')[-2:]))" $model_dir)
     shift 1

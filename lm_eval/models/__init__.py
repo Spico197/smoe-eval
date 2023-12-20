@@ -1,11 +1,13 @@
+# from . import llama_moe
 from . import gpt2
 from . import gpt3
 from . import anthropic_llms
 from . import huggingface
 from . import textsynth
 from . import dummy
-from . import llama_moe
 from . import llama_moe_hf
+from . import mixtral
+from . import mistral
 
 MODEL_REGISTRY = {
     "hf": gpt2.HFLM,
@@ -18,6 +20,8 @@ MODEL_REGISTRY = {
     "textsynth": textsynth.TextSynthLM,
     "dummy": dummy.DummyLM,
     "llama-moe-causal": llama_moe_hf.AutoCausalLM,
+    "mixtral": mixtral.AutoCausalLM,
+    "mistral": mistral.AutoCausalLM,
 }
 
 

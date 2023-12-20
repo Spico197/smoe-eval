@@ -1,0 +1,25 @@
+{
+  "results": {
+    "arc_challenge": {
+      "acc": 0.18003412969283278,
+      "acc_stderr": 0.011227856729050021,
+      "acc_norm": 0.2226962457337884,
+      "acc_norm_stderr": 0.012158314774829931
+    }
+  },
+  "versions": {
+    "arc_challenge": 0
+  },
+  "config": {
+    "model": "mixtral",
+    "model_args": "pretrained=/mnt/petrelfs/share_data/zhutong/runs/mixtral_random_split_112gpus_8_2/outputs/mixtral_random_split_112gpus_8_2-2433672/checkpoint-1360,use_accelerate=True",
+    "num_fewshot": 25,
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

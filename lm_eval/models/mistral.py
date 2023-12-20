@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 from transformers import BatchEncoding
 from transformers import AutoTokenizer
-from smoe.models.mixtral import MixtralForCausalLM, MixtralConfig, MixtralModel
+from smoe.models.mistral import MistralConfig, MistralForCausalLM, MistralModel
 
 from lm_eval import utils
 from lm_eval.base import BaseLM
@@ -60,9 +60,9 @@ def _get_dtype(
     return _torch_dtype
 
 
-class MixtralHfLM(BaseLM):
-    AUTO_CONFIG_CLASS: MixtralConfig = MixtralConfig
-    AUTO_MODEL_CLASS: MixtralModel = MixtralModel
+class MistralHfLM(BaseLM):
+    AUTO_CONFIG_CLASS: MistralConfig = MistralConfig
+    AUTO_MODEL_CLASS: MistralModel = MistralModel
     AUTO_TOKENIZER_CLASS: AutoTokenizer = AutoTokenizer
     AUTO_PEFT_CLASS: peft.PeftModel = None
 
@@ -217,7 +217,7 @@ class MixtralHfLM(BaseLM):
                 max_cpu_memory,
                 offload_folder,
             )
-        self.model: MixtralForCausalLM = self._create_auto_model(
+        self.model: MistralForCausalLM = self._create_auto_model(
             pretrained=pretrained,
             quantized=quantized,
             trust_remote_code=trust_remote_code,
@@ -491,13 +491,13 @@ class MixtralHfLM(BaseLM):
         return reorder.get_original(results)
 
 
-class AutoCausalLM(MixtralHfLM):
+class AutoCausalLM(MistralHfLM):
     """Causal language modeling.
     You can find a set of supported models in the HF documentation:
     https://huggingface.co/docs/transformers/main/model_doc/auto#transformers.AutoModelForCausalLM
     """
 
-    AUTO_MODEL_CLASS = MixtralForCausalLM
+    AUTO_MODEL_CLASS = MistralForCausalLM
     AUTO_PEFT_CLASS = peft.PeftModel
 
     def _create_auto_tokenizer(
@@ -556,7 +556,7 @@ class AutoCausalLM(MixtralHfLM):
         )
 
 
-class AutoSeq2SeqLM(MixtralHfLM):
+class AutoSeq2SeqLM(MistralHfLM):
     """Seq2Seq language modeling.
     You can find a set of supported models in the following documentation:
     https://huggingface.co/docs/transformers/main/model_doc/auto#transformers.AutoModelForSeq2SeqLM

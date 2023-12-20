@@ -72,7 +72,9 @@ def run_command(command):
 def listen(
     abbr: str,
     folder: str,
+    partition: str = "MoE",
     tasks: List[str] = ["arc", "hellaswag"],
+    model_type: str = "llama-moe-causal",  # llama-moe-causal, hf-causal-experimental
     evaluated: List[Tuple[str, str]] = None,
     moved: List[str] = None,
     run_eval: bool = True,
@@ -84,7 +86,6 @@ def listen(
     """
     sleep_interval = 5 * 60
     batch_size = 2
-    model_type = "llama-moe-causal"  # llama-moe-causal, hf-causal-experimental
     results_folder = Path(f"results/{abbr}")
     log_dir = "logs"
 
@@ -161,7 +162,7 @@ def listen(
                     ]
                     log_path = f"{log_dir}/{abbr}-{ckpt_id}-{task}.log"
                     run_command(
-                        "nohup srun -p MoE -n1 -N1 --gres=gpu:1 --quotatype=auto "
+                        f"nohup srun -p {partition} -n1 -N1 --gres=gpu:1 --quotatype=auto "
                         + f"--output={log_path} "
                         + f"--error={log_path} "
                         + "python main.py "
@@ -172,7 +173,7 @@ def listen(
 
             if ckpt_id not in moved and run_move:
                 run_command(
-                    "https_proxy='' http_proxy='' nohup srun -p MoE -n1 -N1 --gres=gpu:1 --quotatype=auto "
+                    f"https_proxy='' http_proxy='' nohup srun -p {partition} -n1 -N1 --gres=gpu:1 --quotatype=auto "
                     + f"aws s3 cp {str(ckpt_folder)} {remote_dir}/{abbr}/{ckpt_id} --recursive "
                     + f"1>{log_dir}/{abbr}-{ckpt_id}-move_to_remote.log 2>&1 &"
                 )
@@ -275,7 +276,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("abbr", type=str)
     parser.add_argument("folder", type=str)
+    parser.add_argument("-p", "--partition", type=str, default="MoE", help="slurm partition")
     parser.add_argument("--tasks", type=str, default="arc,hellaswag")
+    parser.add_argument("--model_type", type=str, default="llama-moe-causal", choices=["llama-moe-causal", "hf-causal-experimental", "mixtral"])
     parser.add_argument("--evaluated", type=str, default=None, help="ckpt_id,task#ckpt_id,task")
     parser.add_argument("--moved", type=str, default=None, help="ckpt_id#ckpt_id")
     parser.add_argument("--run_eval", action="store_true")
@@ -295,6 +298,8 @@ if __name__ == "__main__":
         args.abbr,
         args.folder,
         tasks=tasks,
+        partition=args.partition,
+        model_type=args.model_type,
         evaluated=evaluated,
         moved=moved,
         run_eval=args.run_eval,
