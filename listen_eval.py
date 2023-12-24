@@ -50,6 +50,41 @@ SETTINGS = {
         "tasks": "truthfulqa_mc",
         "fewshot": 0,
     },
+    "sciq": {
+        "task_name": "sciq-0shot",
+        "tasks": "sciq",
+        "fewshot": 0,
+    },
+    "piqa": {
+        "task_name": "piqa-0shot",
+        "tasks": "piqa",
+        "fewshot": 0,
+    },
+    "winogrande": {
+        "task_name": "winogrande-0shot",
+        "tasks": "winogrande",
+        "fewshot": 0,
+    },
+    "arc_e": {
+        "task_name": "arc_easy-0shot",
+        "tasks": "arc_easy",
+        "fewshot": 0,
+    },
+    "logiqa": {
+        "task_name": "logiqa-0shot",
+        "tasks": "logiqa",
+        "fewshot": 0,
+    },
+    "boolq": {
+        "task_name": "boolq-32shot",
+        "tasks": "boolq",
+        "fewshot": 32,
+    },
+    "lambada": {
+        "task_name": "lambada-0shot",
+        "tasks": "lambada_standard",
+        "fewshot": 0,
+    },
 }
 
 
@@ -66,6 +101,44 @@ def run_command(command):
         )
     except subprocess.CalledProcessError as e:
         logger.error(f"An error occurred: {e}")
+
+
+def eval_one(
+    abbr: str,
+    folder: str,
+    partition: str = "MoE",
+    tasks: List[str] = ["arc", "hellaswag"],
+    model_type: str = "llama-moe-causal",  # llama-moe-causal, hf-causal-experimental
+    results_folder: str = "results",
+    log_dir: str = "logs",
+    batch_size: int = 2,
+):
+    results_folder = Path(results_folder)
+
+    for task in tasks:
+        out_path = results_folder / abbr / f"{SETTINGS[task]['task_name']}.json"
+        logger.info(f"Evaluating task {task} for {abbr}, folder: {str(folder)}")
+        logger.info(f"Dest path: {str(out_path)}")
+
+        cmd_args = [
+            f"--model='{model_type}'",
+            f"--model_args='pretrained={str(folder)},use_accelerate=True'",
+            f"--tasks='{SETTINGS[task]['tasks']}'",
+            f"--num_fewshot={SETTINGS[task]['fewshot']}",
+            f"--batch_size={batch_size}",
+            "--no_cache",
+            f"--output_path='{str(out_path)}'",
+            "--device='cuda:0'",
+        ]
+        log_path = f"{log_dir}/{abbr}-{task}.log"
+        run_command(
+            f"nohup srun -p {partition} -n1 -N1 --gres=gpu:1 --quotatype=auto "
+            + f"--output={log_path} "
+            + f"--error={log_path} "
+            + "python main.py "
+            + " ".join(cmd_args)
+            + f" 1>{log_path} 2>&1 &"
+        )
 
 
 @wechat_sender(msg_prefix="Listening Evaluation Worker")
@@ -121,8 +194,6 @@ def listen(
 
             if run_eval:
                 for task in tasks:
-                    if (ckpt_id, task) in evaluated:
-                        continue
                     out_path = (
                         results_folder / f"{ckpt_id}-{SETTINGS[task]['task_name']}.json"
                     )
@@ -144,6 +215,9 @@ def listen(
                             + results_str
                         )
                         notified.append((ckpt_id, task))
+
+                    if (ckpt_id, task) in evaluated:
+                        continue
 
                     logger.info(
                         f"Evaluating task {task} for {abbr}, folder: {str(ckpt_folder)}"
@@ -276,10 +350,19 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("abbr", type=str)
     parser.add_argument("folder", type=str)
-    parser.add_argument("-p", "--partition", type=str, default="MoE", help="slurm partition")
+    parser.add_argument(
+        "-p", "--partition", type=str, default="MoE", help="slurm partition"
+    )
     parser.add_argument("--tasks", type=str, default="arc,hellaswag")
-    parser.add_argument("--model_type", type=str, default="llama-moe-causal", choices=["llama-moe-causal", "hf-causal-experimental", "mixtral"])
-    parser.add_argument("--evaluated", type=str, default=None, help="ckpt_id,task#ckpt_id,task")
+    parser.add_argument(
+        "--model_type",
+        type=str,
+        default="llama-moe-causal",
+        choices=["llama-moe-causal", "hf-causal-experimental", "mixtral"],
+    )
+    parser.add_argument(
+        "--evaluated", type=str, default=None, help="ckpt_id,task#ckpt_id,task"
+    )
     parser.add_argument("--moved", type=str, default=None, help="ckpt_id#ckpt_id")
     parser.add_argument("--run_eval", action="store_true")
     parser.add_argument("--run_move", action="store_true")

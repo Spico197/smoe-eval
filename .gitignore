@@ -10,3 +10,4 @@ lm_eval.egg-info/
 val_set/
 .env
 *.log
+results/

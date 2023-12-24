@@ -4,7 +4,7 @@
 #SBATCH --output=logs/%x-%j.log
 #SBATCH --error=logs/%x-%j.log
 
-#SBATCH --partition=MoE_T
+#SBATCH --partition=MoE
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
 ##SBATCH --mem=0
@@ -13,8 +13,8 @@
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 
-# source ~/anaconda3/bin/activate smoe
-source ~/miniconda3/bin/activate smoe
+source ~/anaconda3/bin/activate smoe
+# source ~/miniconda3/bin/activate smoe
 
 mkdir -p logs
 
@@ -143,8 +143,8 @@ export LOGLEVEL=INFO
             ;;
         "lambada")
             task_name="lambada-0shot"
-            tasks="lambada_standard"
-            fewshot=32
+            tasks="lambada_openai"
+            fewshot=0
             ;;
         "nq")
             task_name="nq-32shot"
