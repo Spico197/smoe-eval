@@ -1,6 +1,9 @@
 import time
+import json
 import subprocess
+import statistics as sts
 from pathlib import Path
+from tabulate import tabulate
 
 from loguru import logger
 
@@ -68,6 +71,7 @@ def eval_one(
             + " ".join(cmd_args)
             + f" 1>{log_path} 2>&1 &"
         )
+        time.sleep(3)
 
     # while len(out_path_list) > 0:
     #     out_path: Path = out_path_list.pop(0)
@@ -82,39 +86,67 @@ def remove_dir(folder: str):
     run_command(f"rm -r {folder}")
 
 
+def collect_results(folder: str, prefix: str, tasks: list[str]):
+    folder_p = Path(folder)
+
+    val_list = []
+    for task in tasks:
+        out_path = folder_p / f"{prefix}-{task}.json"
+        res = json.load(out_path.open("rt", encoding="utf8"))
+        vals = list(res["results"].values())
+        assert len(vals) == 1
+        val = vals[0]
+        if "acc_norm" in val:
+            val_list.append(val["acc_norm"] * 100)
+        else:
+            val_list.append(val["acc"] * 100)
+
+    tasks.append("average")
+    val_list.append(sts.mean(val_list))
+
+    print(f"{folder} / {prefix}")
+    print(tabulate([val_list], headers=tasks, floatfmt=".1f"))
+
+
 if __name__ == "__main__":
     cache_dir = "models/cache"
     tasks = [
-        {
-            # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/340",
-            "model_dir": "models/sheared_fluency_8_2/340",
-            "task": "arc,hellaswag",
-        },
-        {
-            # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/3740",
-            "model_dir": "models/sheared_fluency_8_2/3740",
-            "task": "hellaswag",
-        },
-        {
-            # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/9180",
-            "model_dir": "models/sheared_fluency_8_2/9180",
-            "task": "arc,hellaswag",
-        },
-        {
-            # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/10540",
-            "model_dir": "models/sheared_fluency_8_2/10540",
-            "task": "arc",
-        },
-        {
-            # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/13260",
-            "model_dir": "models/sheared_fluency_8_2/13260",
-            "task": "arc,hellaswag",
-        },
+        # {
+        #     # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/340",
+        #     "model_dir": "models/sheared_fluency_8_2/340",
+        #     "task": "arc,hellaswag",
+        # },
+        # {
+        #     # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/3740",
+        #     "model_dir": "models/sheared_fluency_8_2/3740",
+        #     "task": "hellaswag",
+        # },
+        # {
+        #     # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/9180",
+        #     "model_dir": "models/sheared_fluency_8_2/9180",
+        #     "task": "arc,hellaswag",
+        # },
+        # {
+        #     # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/10540",
+        #     "model_dir": "models/sheared_fluency_8_2/10540",
+        #     "task": "arc",
+        # },
+        # {
+        #     # "model_dir": "s3://moe_checkpoints/zhutong/models/sheared_fluency_8_2/13260",
+        #     "model_dir": "models/sheared_fluency_8_2/13260",
+        #     "task": "arc,hellaswag",
+        # },
+
     ]
     for task in tasks:
         # download_to_cache(task["model_dir"], cache_dir)
         model_dir_p = Path(task["model_dir"])
+        model_type = task.get("model_type", "llama-moe-causal")
         # sheared_fluency_8_2-9180
-        abbr = f"{model_dir_p.parent.name}-{model_dir_p.name}"
-        eval_one(abbr, str(model_dir_p), tasks=task["task"].split(","))
-        # remove_dir(cache_dir)
+        abbr = task.get("abbr", f"{model_dir_p.parent.name}-{model_dir_p.name}")
+
+        # eval_one(
+        #     abbr, str(model_dir_p), tasks=task["task"].split(","), model_type=model_type
+        # )
+
+        collect_results("results", abbr, tasks=task["task"].split(","))

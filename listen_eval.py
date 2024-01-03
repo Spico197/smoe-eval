@@ -82,7 +82,7 @@ SETTINGS = {
     },
     "lambada": {
         "task_name": "lambada-0shot",
-        "tasks": "lambada_standard",
+        "tasks": "lambada_openai",
         "fewshot": 0,
     },
 }
